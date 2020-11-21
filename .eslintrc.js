@@ -12,6 +12,11 @@ module.exports = {
   },
   ignorePatterns: ['*.json'],
   rules: {
+    'no-return-assign': 0,
+    'no-param-reassign': [2, { props: false }],
+    'no-unmodified-loop-condition': 1,
+    'no-unreachable-loop': 1,
+    'no-dupe-else-if': 1,
     radix: 0,
   },
 };

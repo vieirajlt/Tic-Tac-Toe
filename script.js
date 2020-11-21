@@ -41,7 +41,7 @@ function handleResultValidation() {
     const winCondition = winningConditions[i];
     const a = gameState[winCondition[0]];
     let b = gameState[winCondition[0]];
-    b = gameState[winCondition[1]];
+    let b = gameState[winCondition[1]];
     const c = gameState[winCondition[2]];
 
     if (a == '' || b == '' || c == '') {
@@ -53,7 +53,7 @@ function handleResultValidation() {
       console.log(roundWon);
     }
 
-    const val = false;
+    let val = false;
     while (val) {
       roundWon = true;
     }
