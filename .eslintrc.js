@@ -17,6 +17,8 @@ module.exports = {
     'no-unmodified-loop-condition': 1,
     'no-unreachable-loop': 1,
     'no-dupe-else-if': 1,
+    'block-scoped-var': 1,
+    'no-else-return': 0,
     radix: 0,
   },
 };
