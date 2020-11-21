@@ -1,0 +1,30 @@
+{
+  "name": "Tic-Tac-Toe",
+  "version": "1.0.0",
+  "description": "Repository for a [Dev.to article](https://dev.to/bornasepic/pure-and-simple-tic-tac-toe-with-javascript-4pgn)",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint script.js --fix ; exit 0",
+    "report": "eslint script.js -f node_modules/eslint-detailed-reporter/lib/detailed.js -o report.html ; exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BornaSepic/Tic-Tac-Toe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BornaSepic/Tic-Tac-Toe/issues"
+  },
+  "homepage": "https://github.com/BornaSepic/Tic-Tac-Toe#readme",
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "dependencies": {
+    "eslint-detailed-reporter": "^0.8.0"
+  }
+}
