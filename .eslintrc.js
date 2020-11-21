@@ -19,6 +19,7 @@ module.exports = {
     'no-dupe-else-if': 1,
     'block-scoped-var': 1,
     'no-else-return': 0,
+    'no-useless-concat': 1,
     radix: 0,
   },
 };

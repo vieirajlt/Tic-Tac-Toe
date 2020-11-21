@@ -1,4 +1,4 @@
-# Exercise preparation
+# Setup
 
 You will be using ESLint in this exercise.
 
