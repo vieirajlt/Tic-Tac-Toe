@@ -5,8 +5,8 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint script.js ; exit 0",
-    "report": "eslint script.js -f node_modules/eslint-detailed-reporter/lib/detailed.js -o report.html ; exit 0"
+    "lint": "eslint ex*.js ; exit 0",
+    "report": "eslint ex*.js -f node_modules/eslint-detailed-reporter/lib/detailed.js -o report.html ; exit 0"
   },
   "repository": {
     "type": "git",

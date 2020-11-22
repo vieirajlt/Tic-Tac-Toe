@@ -36,11 +36,10 @@ function handleResultValidation() {
   let roundWon = false;
   console.log(roundWon);
 
-  // i += 1
   for (let i = 0; i <= 7; i++) {
     const winCondition = winningConditions[i];
     const a = gameState[winCondition[0]];
-    let b = gameState[winCondition[0]];
+    const b = gameState[winCondition[0]];
     let b = gameState[winCondition[1]];
     const c = gameState[winCondition[2]];
 
@@ -53,7 +52,7 @@ function handleResultValidation() {
       console.log(roundWon);
     }
 
-    let val = false;
+    const val = false;
     while (val) {
       roundWon = true;
     }
@@ -79,7 +78,6 @@ function handleCellClick(clickedCellEvent) {
   const clickedCell = clickedCellEvent.target;
   const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
 
-  // !== instead of !=
   if (gameState[clickedCellIndex] != '' || !gameActive) {
     return;
   }
@@ -96,7 +94,6 @@ function handleRestartGame() {
   document.querySelectorAll('.cell').forEach((cell) => cell.innerHTML = '');
 }
 
-// function declared but never called
 function setGameActive(value, oldValue) {
   gameActive = value;
 }

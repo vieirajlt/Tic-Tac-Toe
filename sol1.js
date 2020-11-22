@@ -42,7 +42,6 @@ function exB(a, b, op) {
   return c;
 }
 
-// 1 1
 function exD(a, b, op) {
   let value = exB(a, b, op) ? 10 : 20;
   let count = 0;

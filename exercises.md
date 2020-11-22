@@ -1,10 +1,10 @@
 # Exercises
 
-Just to give you some context, sometimes we make some not very smart mistakes (we are only human…). Tools like eslint are a valuable help in these situations. Eslint statically analyzes code to quickly find issues.
+Just to give you some context, sometimes we make some not very smart mistakes (we are only human…). Tools like ESLint are a valuable help in these situations. ESLint statically analyzes code to quickly find issues.
 
 For all the exercises proposed you should take some time to analyze the code WITHOUT using the tool. As an exceptionally talented programmer, you should be able to catch some of these issues without using it. 
 
-Then you can run eslint and the issues will be outlined! As easy as that! 
+Then you can run ESLint and the issues will be outlined! As easy as that! 
 
 You should take into account that, in some cases, fixing one issue reveals another set of brand new issues for you to enjoy! Fun right?
 
@@ -14,7 +14,7 @@ For additional information on the issues go [here](https://eslint.org/docs/rules
 
 The main goal of this exercise is for you to understand how the tool works and the different issues it identifies. In order to do that, four simple functions are presented to you. You should start fixing them in order. 
 
-Did you notice anything strange? Eslint is only reporting one error...weird...lets see what happens when you try to fix it!
+Did you notice anything strange? ESLint is only reporting one error...weird...lets see what happens when you try to fix it!
 
 
 ### Exercise 1.a. 
@@ -143,7 +143,6 @@ function handleResultValidation() {
   let roundWon = false;
   console.log(roundWon);
 
-  // i += 1
   for (let i = 0; i <= 7; i++) {
     const winCondition = winningConditions[i];
     const a = gameState[winCondition[0]];
@@ -186,7 +185,6 @@ function handleCellClick(clickedCellEvent) {
   const clickedCell = clickedCellEvent.target;
   const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
 
-  // !== instead of !=
   if (gameState[clickedCellIndex] != '' || !gameActive) {
     return;
   }
@@ -203,7 +201,6 @@ function handleRestartGame() {
   document.querySelectorAll('.cell').forEach((cell) => cell.innerHTML = '');
 }
 
-// function declared but never called
 function setGameActive(value, oldValue) {
   gameActive = value;
 }

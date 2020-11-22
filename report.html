@@ -355,7 +355,7 @@
 	<div class="container">
 		<div id="summary">
 			<h2 class="page-header">Summary</h2>
-			<div>1 problem (1 error, 0 warnings)</div>
+			<div>2 problems (2 errors, 0 warnings)</div>
 			<div class="row"><div class="column">
 	<h3 class="text-error">Top errors</h3>
 	<table class="summary-table"><thead>
@@ -366,7 +366,7 @@
 	</thead><tbody>
 		<tr>
 	<td><a href="http://eslint.org/docs/rules/null" target="_blank">null</a></td>
-	<td>1</td>
+	<td>2</td>
 </tr>
 	</tbody></table>
 </div>
@@ -381,7 +381,12 @@
 			</tr>
 		</thead><tbody>
 			<tr>
-	<td><a href="#homeSusanaDocumentsTvvsTicTacToeScriptJs">/script.js</a></td>
+	<td><a href="#homeSusanaDocumentsTvvsTicTacToeEx1Js">/ex1.js</a></td>
+	<td>1</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td><a href="#homeSusanaDocumentsTvvsTicTacToeEx2Js">/ex2.js</a></td>
 	<td>1</td>
 	<td>0</td>
 </tr>
@@ -409,12 +414,12 @@
 			</fieldset>
 			<table id="fileOverview">
 				<tbody>
-					<tr id="homeSusanaDocumentsTvvsTicTacToeScriptJs" class="lint-result bg-error" data-group="f-0" data-problem-count="1" tabindex="0">
+					<tr id="homeSusanaDocumentsTvvsTicTacToeEx1Js" class="lint-result bg-error" data-group="f-0" data-problem-count="1" tabindex="0">
     <th class="icon-box" colspan="1">
         <span class="caret"></span>
     </th>
     <th>
-        /script.js
+        /ex1.js
     </th>
     <th class="result-summary">
       1 problem (1 error, 0 warnings)
@@ -459,7 +464,7 @@
 			<tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Row 44, Column 9: "Parsing error: Identifier 'b' has already been declared"
+		Row 1, Column 24: "Parsing error: Argument name clash"
 		<a href="http://eslint.org/docs/rules/null" target="_blank"></a>
 	</td>
 </tr>
@@ -468,6 +473,372 @@
 </div>
 			</div>
 			<div role="tabpanel" class="tab-pane hidden" id="sourceCode-0">
+				<table class="source-code">
+	<thead>
+		<tr>
+			<th>Line</th>
+			<th>Source</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 1, Column 24: "Parsing error: Argument name clash"
+		<a href="http://eslint.org/docs/rules/null" target="_blank"></a>
+	</td>
+</tr><tr class="hit bg-error">
+	<td class="line">1</td>
+	<td class="source"><code>function exA(a, b, op, op) {</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">2</td>
+	<td class="source"><code>  let res;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">3</td>
+	<td class="source"><code>  switch (op) {</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">4</td>
+	<td class="source"><code>    case 'SUM':</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">5</td>
+	<td class="source"><code>      res = a + b;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">6</td>
+	<td class="source"><code>      break;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">7</td>
+	<td class="source"><code>    case 'SUB':</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">8</td>
+	<td class="source"><code>      res = a - b;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">9</td>
+	<td class="source"><code>      break;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">10</td>
+	<td class="source"><code>    case 'PROD':</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">11</td>
+	<td class="source"><code>      res = a * b;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">12</td>
+	<td class="source"><code>    case 'SUM':</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">13</td>
+	<td class="source"><code>      res = a + b;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">14</td>
+	<td class="source"><code>      break;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">15</td>
+	<td class="source"><code>    case 'DIV':</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">16</td>
+	<td class="source"><code>      res = a / b;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">17</td>
+	<td class="source"><code>      break;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">18</td>
+	<td class="source"><code>  }</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">19</td>
+	<td class="source"><code>  return res;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">20</td>
+	<td class="source"><code>}</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">21</td>
+	<td class="source"><code></code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">22</td>
+	<td class="source"><code>function exB(a, b, op) {</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">23</td>
+	<td class="source"><code>  const value = exC(a, b, op);</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">24</td>
+	<td class="source"><code>  if (vallue == 'POSITIVE') {</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">25</td>
+	<td class="source"><code>    const c = true;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">26</td>
+	<td class="source"><code>  } else {</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">27</td>
+	<td class="source"><code>    const b = false;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">28</td>
+	<td class="source"><code>  }</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">29</td>
+	<td class="source"><code>  return c;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">30</td>
+	<td class="source"><code>}</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">31</td>
+	<td class="source"><code></code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">32</td>
+	<td class="source"><code>function exC(a, b, op) {</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">33</td>
+	<td class="source"><code>  const value = exA(a, b);</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">34</td>
+	<td class="source"><code>  if (value &#60; 0) {</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">35</td>
+	<td class="source"><code>    return 'NEGATIVE';</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">36</td>
+	<td class="source"><code>  } else if (value == 0) {</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">37</td>
+	<td class="source"><code>    return 'ZERO';</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">38</td>
+	<td class="source"><code>  } else if (value_ &#62; 0) {</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">39</td>
+	<td class="source"><code>    return 'POSITIVE';</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">40</td>
+	<td class="source"><code>  } else if (value &#60; 0) {</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">41</td>
+	<td class="source"><code>    return 'NEGATIVE';</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">42</td>
+	<td class="source"><code>  }</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">43</td>
+	<td class="source"><code>}</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">44</td>
+	<td class="source"><code></code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">45</td>
+	<td class="source"><code>function exD(a, b, op) {</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">46</td>
+	<td class="source"><code>  value = exB(a, b, op) ? 10 : 20;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">47</td>
+	<td class="source"><code>  let value;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">48</td>
+	<td class="source"><code>  let count = 0;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">49</td>
+	<td class="source"><code>  let res;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">50</td>
+	<td class="source"><code>  while (value &#60; 30) {</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">51</td>
+	<td class="source"><code>    count += 1;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">52</td>
+	<td class="source"><code>  }</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">53</td>
+	<td class="source"><code>  return count;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">54</td>
+	<td class="source"><code>}</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">55</td>
+	<td class="source"><code></code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">56</td>
+	<td class="source"><code>exD(2, 9, 'SUM');</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">57</td>
+	<td class="source"><code></code></td>
+</tr>
+
+	</tbody>
+</table>
+
+			</div>
+		</div>
+	</td>
+</tr>
+
+<tr id="homeSusanaDocumentsTvvsTicTacToeEx2Js" class="lint-result bg-error" data-group="f-1" data-problem-count="1" tabindex="0">
+    <th class="icon-box" colspan="1">
+        <span class="caret"></span>
+    </th>
+    <th>
+        /ex2.js
+    </th>
+    <th class="result-summary">
+      1 problem (1 error, 0 warnings)
+    </th>
+</tr>
+<tr class="f-1 hidden">
+	<td colspan="5">
+		<ul class="nav-tabs" role="tablist">
+			<li role="presentation" class="active">
+				<button data-parent=".f-1"
+								data-content="detailSummary-1"
+								aria-controls="detailSummary-1"
+								type="button"
+								role="tab">
+					Summary
+				</button>
+			</li>
+			<li role="presentation">
+				<button data-parent=".f-1"
+								data-content="sourceCode-1"
+								aria-controls="sourceCode-1"
+								type="button"
+								role="tab">
+					SourceCode
+				</button>
+			</li>
+		</ul>
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane" id="detailSummary-1">
+				<div class="row"></div>
+<div class="row">
+	<h3 class="page-header">All Rules</h3>
+	<table class="summary-table">
+		<thead>
+			<tr>
+				<th>Severity</th>
+				<th>Rule</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 43, Column 9: "Parsing error: Identifier 'b' has already been declared"
+		<a href="http://eslint.org/docs/rules/null" target="_blank"></a>
+	</td>
+</tr>
+		</tbody>
+	</table>
+</div>
+			</div>
+			<div role="tabpanel" class="tab-pane hidden" id="sourceCode-1">
 				<table class="source-code">
 	<thead>
 		<tr>
@@ -668,347 +1039,332 @@
 
 <tr class="hit bg-success">
 	<td class="line">39</td>
-	<td class="source"><code>  // i += 1</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">40</td>
 	<td class="source"><code>  for (let i = 0; i &#60;= 7; i++) {</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">41</td>
+	<td class="line">40</td>
 	<td class="source"><code>    const winCondition = winningConditions[i];</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">42</td>
+	<td class="line">41</td>
 	<td class="source"><code>    const a = gameState[winCondition[0]];</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">43</td>
-	<td class="source"><code>    let b = gameState[winCondition[0]];</code></td>
+	<td class="line">42</td>
+	<td class="source"><code>    const b = gameState[winCondition[0]];</code></td>
 </tr>
 
 <tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Row 44, Column 9: "Parsing error: Identifier 'b' has already been declared"
+		Row 43, Column 9: "Parsing error: Identifier 'b' has already been declared"
 		<a href="http://eslint.org/docs/rules/null" target="_blank"></a>
 	</td>
 </tr><tr class="hit bg-error">
-	<td class="line">44</td>
+	<td class="line">43</td>
 	<td class="source"><code>    let b = gameState[winCondition[1]];</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">45</td>
+	<td class="line">44</td>
 	<td class="source"><code>    const c = gameState[winCondition[2]];</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">46</td>
+	<td class="line">45</td>
 	<td class="source"><code></code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">47</td>
+	<td class="line">46</td>
 	<td class="source"><code>    if (a == '' || b == '' || c == '') {</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">48</td>
+	<td class="line">47</td>
 	<td class="source"><code>      continue;</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">49</td>
+	<td class="line">48</td>
 	<td class="source"><code>    }</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">50</td>
+	<td class="line">49</td>
 	<td class="source"><code>    if (a == b && b == c) {</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">51</td>
+	<td class="line">50</td>
 	<td class="source"><code>      roundWon = true;</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">52</td>
+	<td class="line">51</td>
 	<td class="source"><code>      break;</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">53</td>
+	<td class="line">52</td>
 	<td class="source"><code>      console.log(roundWon);</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">54</td>
+	<td class="line">53</td>
 	<td class="source"><code>    }</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">54</td>
+	<td class="source"><code></code></td>
 </tr>
 
 <tr class="hit bg-success">
 	<td class="line">55</td>
-	<td class="source"><code></code></td>
+	<td class="source"><code>    const val = false;</code></td>
 </tr>
 
 <tr class="hit bg-success">
 	<td class="line">56</td>
-	<td class="source"><code>    let val = false;</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">57</td>
 	<td class="source"><code>    while (val) {</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">58</td>
+	<td class="line">57</td>
 	<td class="source"><code>      roundWon = true;</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">59</td>
+	<td class="line">58</td>
 	<td class="source"><code>    }</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">60</td>
+	<td class="line">59</td>
 	<td class="source"><code>  }</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">60</td>
+	<td class="source"><code></code></td>
 </tr>
 
 <tr class="hit bg-success">
 	<td class="line">61</td>
-	<td class="source"><code></code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">62</td>
 	<td class="source"><code>  if (roundWon) {</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">63</td>
+	<td class="line">62</td>
 	<td class="source"><code>    statusDisplay.innerHTML = winningMessage();</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">64</td>
+	<td class="line">63</td>
 	<td class="source"><code>    gameActive = false;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">64</td>
+	<td class="source"><code>    return;</code></td>
 </tr>
 
 <tr class="hit bg-success">
 	<td class="line">65</td>
-	<td class="source"><code>    return;</code></td>
+	<td class="source"><code>  }</code></td>
 </tr>
 
 <tr class="hit bg-success">
 	<td class="line">66</td>
-	<td class="source"><code>  }</code></td>
+	<td class="source"><code></code></td>
 </tr>
 
 <tr class="hit bg-success">
 	<td class="line">67</td>
-	<td class="source"><code></code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">68</td>
 	<td class="source"><code>  const roundDraw = !gameState.includes('');</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">69</td>
+	<td class="line">68</td>
 	<td class="source"><code>  if (roundDraw) {</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">70</td>
+	<td class="line">69</td>
 	<td class="source"><code>    statusDisplay.innerHTML = drawMessage();</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">71</td>
+	<td class="line">70</td>
 	<td class="source"><code>    gameActive = false;</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">72</td>
+	<td class="line">71</td>
 	<td class="source"><code>    return;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">72</td>
+	<td class="source"><code>  }</code></td>
 </tr>
 
 <tr class="hit bg-success">
 	<td class="line">73</td>
-	<td class="source"><code>  }</code></td>
+	<td class="source"><code></code></td>
 </tr>
 
 <tr class="hit bg-success">
 	<td class="line">74</td>
-	<td class="source"><code></code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">75</td>
 	<td class="source"><code>  handlePlayerChange();</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">76</td>
+	<td class="line">75</td>
 	<td class="source"><code>}</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">76</td>
+	<td class="source"><code></code></td>
 </tr>
 
 <tr class="hit bg-success">
 	<td class="line">77</td>
-	<td class="source"><code></code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">78</td>
 	<td class="source"><code>function handleCellClick(clickedCellEvent) {</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">79</td>
+	<td class="line">78</td>
 	<td class="source"><code>  const clickedCell = clickedCellEvent.target;</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">80</td>
+	<td class="line">79</td>
 	<td class="source"><code>  const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">81</td>
+	<td class="line">80</td>
 	<td class="source"><code></code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">82</td>
-	<td class="source"><code>  // !== instead of !=</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">83</td>
+	<td class="line">81</td>
 	<td class="source"><code>  if (gameState[clickedCellIndex] != '' || !gameActive) {</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">84</td>
+	<td class="line">82</td>
 	<td class="source"><code>    return;</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">85</td>
+	<td class="line">83</td>
 	<td class="source"><code>  }</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">86</td>
+	<td class="line">84</td>
 	<td class="source"><code></code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">87</td>
+	<td class="line">85</td>
 	<td class="source"><code>  handleCellPlayed(clickedCell, clickedCellIndex);</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">88</td>
+	<td class="line">86</td>
 	<td class="source"><code>  handleResultValidation();</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">89</td>
+	<td class="line">87</td>
 	<td class="source"><code>}</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">90</td>
+	<td class="line">88</td>
 	<td class="source"><code></code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">91</td>
+	<td class="line">89</td>
 	<td class="source"><code>function handleRestartGame() {</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">92</td>
+	<td class="line">90</td>
 	<td class="source"><code>  gameActive = true;</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">93</td>
+	<td class="line">91</td>
 	<td class="source"><code>  currentPlayer = 'X';</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">94</td>
+	<td class="line">92</td>
 	<td class="source"><code>  gameState = ['', '', '', '', '', '', '', '', ''];</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">95</td>
+	<td class="line">93</td>
 	<td class="source"><code>  statusDisplay.innerHTML = currentPlayerTurn();</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">96</td>
+	<td class="line">94</td>
 	<td class="source"><code>  document.querySelectorAll('.cell').forEach((cell) =&#62; cell.innerHTML = '');</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">97</td>
+	<td class="line">95</td>
 	<td class="source"><code>}</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">98</td>
+	<td class="line">96</td>
 	<td class="source"><code></code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">99</td>
-	<td class="source"><code>// function declared but never called</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">100</td>
+	<td class="line">97</td>
 	<td class="source"><code>function setGameActive(value, oldValue) {</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">101</td>
+	<td class="line">98</td>
 	<td class="source"><code>  gameActive = value;</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">102</td>
+	<td class="line">99</td>
 	<td class="source"><code>}</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">103</td>
+	<td class="line">100</td>
 	<td class="source"><code></code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">104</td>
+	<td class="line">101</td>
 	<td class="source"><code>document.querySelectorAll('.cell').forEach((cell) =&#62; cell.addEventListener('click', handleCellClick));</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">105</td>
+	<td class="line">102</td>
 	<td class="source"><code>document.querySelector('.game--restart').addEventListener('click', handleRestartGame);</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">106</td>
+	<td class="line">103</td>
 	<td class="source"><code></code></td>
 </tr>
 
