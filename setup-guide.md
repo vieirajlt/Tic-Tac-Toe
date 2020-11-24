@@ -1,6 +1,6 @@
 # Setup
 
-You will be using ESLint in this exercise.
+You will be using ESLint in the exercise.
 
 ## Needed tools
 1. NPM
