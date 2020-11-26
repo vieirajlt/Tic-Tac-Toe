@@ -39,8 +39,8 @@ function handleResultValidation() {
   for (let i = 0; i <= 7; i++) {
     const winCondition = winningConditions[i];
     const a = gameState[winCondition[0]];
-    const b = gameState[winCondition[0]];
-    let b = gameState[winCondition[1]];
+    let b = gameState[winCondition[0]];
+    b = gameState[winCondition[1]];
     const c = gameState[winCondition[2]];
 
     if (a == '' || b == '' || c == '') {

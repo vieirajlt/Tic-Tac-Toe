@@ -41,11 +41,9 @@ function handleResultValidation() {
     const b = gameState[winCondition[1]];
     const c = gameState[winCondition[2]];
 
-    if (!(a === '' || b === '' || c === '')) {
-      if (a === b && b === c) {
-        roundWon = true;
-        break;
-      }
+    if (!(a === '' || b === '' || c === '') && (a === b && b === c)) {
+      roundWon = true;
+      break;
     }
   }
 

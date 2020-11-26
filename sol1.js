@@ -20,8 +20,8 @@ function exA(a, b, op) {
   return res;
 }
 
-function exC(a, b) {
-  const value = exA(a, b);
+function exC(a, b, op) {
+  const value = exA(a, b, op);
   if (value < 0) {
     return 'NEGATIVE';
   } else if (value === 0) {

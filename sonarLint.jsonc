@@ -1,0 +1,72 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.autoSave": "onFocusChange",
+    "eslint.autoFixOnSave": true,
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "eslint.workingDirectories": [
+        "./frontend",
+        "./backend"
+    ],
+    "git.confirmSync": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "workbench.colorTheme": "Monokai",
+    "window.zoomLevel": -1,
+    "sonarlint.rules": {
+        "javascript:S1440": {
+            "level": "on"
+        },
+        "javascript:S3827": {
+            "level": "on"
+        },
+        "javascript:S109": {
+            "level": "off"
+        },
+        "javascript:S126": {
+            "level": "on"
+        },
+        "javascript:S117": {
+            "level": "on"
+        },
+        "javascript:S3758": {
+            "level": "on"
+        },
+        "javascript:S3504": {
+            "level": "on"
+        },
+        "javascript:S1145": {
+            "level": "on"
+        },
+        "javascript:S1066": {
+            "level": "on"
+        },
+        "javascript:S2583": {
+            "level": "on"
+        },
+        "javascript:S134": {
+            "level": "on"
+        },
+        "javascript:S1541": {
+            "level": "on"
+        },
+        "javascript:S1186": {
+            "level": "on"
+        },
+        "javascript:S4144": {
+            "level": "on"
+        },
+        "javascript:S3353": {
+            "level": "on"
+        },
+        "javascript:S1172": {
+            "level": "on"
+        }
+    }
+}
