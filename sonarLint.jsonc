@@ -67,6 +67,27 @@
         },
         "javascript:S1172": {
             "level": "on"
+        },
+        "javascript:S909": {
+            "level": "on"
+        },
+        "javascript:S131": {
+            "level": "on"
+        },
+        "javascript:S3801": {
+            "level": "on"
+        },
+        "javascript:S1067": {
+            "level": "on"
+        },
+        "javascript:S3626": {
+            "level": "on"
+        },
+        "javascript:S1774": {
+            "level": "on"
+        },
+        "javascript:S2392": {
+            "level": "on"
         }
     }
 }

@@ -42,15 +42,15 @@ function exB(a, b, op) {
   return c;
 }
 
-function exD(a, b, op) {
-  let value = exB(a, b, op) ? 10 : 20;
-  let count = 0;
-  while (value < 30) {
-    count += 1;
-    value += 1;
+function exD(a, b) {
+  const ops = ["SUM", "DIF", "PROD", "MUL"];
+  let max = -1;
+  for (let i = 0; i < ops.length; i+= 1) {
+    const opRes = exA(a,b, ops[i])
+    if (opRes > max)
+      max = opRes
   }
-
-  return count;
+  return max
 }
 
-exD(2, 4, 'SUM');
+exD(2, 4);

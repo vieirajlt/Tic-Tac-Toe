@@ -34,7 +34,6 @@ function handlePlayerChange() {
 
 function handleResultValidation() {
   let roundWon = false;
-  console.log(roundWon);
 
   for (let i = 0; i <= 7; i++) {
     const winCondition = winningConditions[i];
@@ -42,19 +41,15 @@ function handleResultValidation() {
     let b = gameState[winCondition[0]];
     b = gameState[winCondition[1]];
     const c = gameState[winCondition[2]];
+    const val = false;
 
-    if (a == '' || b == '' || c == '') {
+
+    if (a ==='' || b === '' || c === '') {
       continue;
     }
-    if (a == b && b == c) {
+    if (a === b && b === c) {
       roundWon = true;
       break;
-      console.log(roundWon);
-    }
-
-    const val = false;
-    while (val) {
-      roundWon = true;
     }
   }
 

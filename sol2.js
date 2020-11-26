@@ -27,13 +27,16 @@ function handleCellPlayed(clickedCell, clickedCellIndex) {
 }
 
 function handlePlayerChange() {
-  currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+  if (currentPlayer === 'X') {
+    currentPlayer = '0'
+  } else {
+    currentPlayer = 'X'
+  }
   statusDisplay.innerHTML = currentPlayerTurn();
 }
 
 function handleResultValidation() {
   let roundWon = false;
-  // console.log(roundWon);
 
   for (let i = 0; i <= 7; i += 1) {
     const winCondition = winningConditions[i];
@@ -41,7 +44,9 @@ function handleResultValidation() {
     const b = gameState[winCondition[1]];
     const c = gameState[winCondition[2]];
 
-    if (!(a === '' || b === '' || c === '') && (a === b && b === c)) {
+    const cond1 = !(a === '' || b === '' || c === '')
+    const cond2 = (a === b && b === c)
+    if ( cond1 && cond2) {
       roundWon = true;
       break;
     }
