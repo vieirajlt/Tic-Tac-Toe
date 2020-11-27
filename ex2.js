@@ -27,35 +27,40 @@ function handleCellPlayed(clickedCell, clickedCellIndex) {
 }
 
 function handlePlayerChange() {
+  oldPlayer = currentPlayer;
   currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-  nextPlayer = currentPlayer;
   statusDisplay.innerHTML = currentPlayerTurn();
 }
 
 function handleResultValidation() {
   let roundWon = false;
+  //used for debugging only, could be removed :)
+  const printRoundWon = !{};
 
-  for (let i = 0; i <= 7; i++) {
+
+  for (let i = 0; i <= 7; i += 1) {
     const winCondition = winningConditions[i];
     const a = gameState[winCondition[0]];
-    let b = gameState[winCondition[0]];
-    b = gameState[winCondition[1]];
-    const c = gameState[winCondition[2]];
-    const val = false;
-
-
-    if (a ==='' || b === '' || c === '') {
+    const b = gameState[winCondition[1]];
+    const c = gameState[winCondition[1]];
+    c = gameState[winCondition[2]];
+    
+    if (a =='' || b == '' || c == '') {
       continue;
     }
-    if (a === b && b === c) {
+    if (a == b && b == c) {
       roundWon = true;
       break;
     }
   }
 
+
   if (roundWon) {
     statusDisplay.innerHTML = winningMessage();
     gameActive = false;
+    if(printRoundWon){
+      console.log(roundWon)
+    }
     return;
   }
 

@@ -27,11 +27,10 @@ function handleCellPlayed(clickedCell, clickedCellIndex) {
 }
 
 function handlePlayerChange() {
-  if (currentPlayer === 'X') {
-    currentPlayer = '0'
-  } else {
+  if (currentPlayer === 'X')
+    currentPlayer = 'O'
+  else
     currentPlayer = 'X'
-  }
   statusDisplay.innerHTML = currentPlayerTurn();
 }
 
@@ -43,14 +42,15 @@ function handleResultValidation() {
     const a = gameState[winCondition[0]];
     const b = gameState[winCondition[1]];
     const c = gameState[winCondition[2]];
-
-    const cond1 = !(a === '' || b === '' || c === '')
+    
+    const cond1 = !(a ==='' || b ==='' || c ==='')
     const cond2 = (a === b && b === c)
-    if ( cond1 && cond2) {
-      roundWon = true;
-      break;
+    if (cond1 && cond2) {
+        roundWon = true;
+        break;
     }
   }
+
 
   if (roundWon) {
     statusDisplay.innerHTML = winningMessage();
@@ -87,6 +87,8 @@ function handleRestartGame() {
   statusDisplay.innerHTML = currentPlayerTurn();
   document.querySelectorAll('.cell').forEach((cell) => cell.innerHTML = '');
 }
+
+
 
 document.querySelectorAll('.cell').forEach((cell) => cell.addEventListener('click', handleCellClick));
 document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
