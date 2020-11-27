@@ -57,7 +57,7 @@ function exC(a, b, op) {
   return c;
 }
 
-
+// returns the max value of all operations applied to 2 numbers
 function exD(a, b) {
   const ops = ["SUB", "PROD", "DIV"];
   let i = 0;

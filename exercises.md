@@ -13,6 +13,7 @@ For additional information on the issues go [here](https://rules.sonarsource.com
 ## Exercise 1
 
 file: _ex1.js_
+
 solution: _sol1.js_ (don't do it, any doubts ask us first!!)
 
 The main goal of this exercise is for you to understand how the tool works and the different issues it identifies. In order to do that, four simple functions are presented to you. You should start fixing them in order. 
@@ -118,14 +119,15 @@ function exD(a, b) {
 ## Exercise 2
 
 file: _ex2.js_
-solution: _sol2.js_ (don't do it, any doubts ask us first!!)
+
+solution: _sol2.js_ (nooo!)
 
 
 This exercise presents a more “real” application of this tool. It is a very simple program that implements the tic tac toe game. As in the previous exercise, we advise you to fix the issues in order.
 
 We are expecting you to encounter around 15/16 issues (it will depend on your resolution).
 
-Have fuuuun! When you are FINISH the exercise you can play the game in the index.html file ;)
+Have fuuuun! When you FINISH the exercise you can play the game in the index.html file ;)
 
 ```JavaScript
 const statusDisplay = document.querySelector('.game--status');
