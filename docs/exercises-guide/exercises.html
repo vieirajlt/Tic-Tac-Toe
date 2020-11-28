@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercises</title>
+        <style>
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="exercises">Exercises</h1>
+<p>Just to give you some context, sometimes we make some not very smart mistakes (we are only human…). Tools like SonarLint are a valuable help in these situations. SonarLint statically analyzes code to quickly find issues.</p>
+<p>For all the exercises proposed you should take some time to analyze the code WITHOUT using the tool. As an exceptionally talented programmer, you should be able to catch some of these issues without using it.</p>
+<p>Then you can view the code on <em>VS Code</em> and <em>SonarLint</em> will outline the issues for you and give tips for fixing them! As easy as that!</p>
+<p>You should take into account that, in some cases, fixing one issue reveals another set of brand new issues for you to enjoy! Fun right?</p>
+<p>For additional information on the issues go <a href="https://rules.sonarsource.com/javascript">here</a>.</p>
+<h2 id="exercise-1">Exercise 1</h2>
+<p>file: <em>ex1.js</em></p>
+<p>solution: <em>sol1.js</em> (don't do it, any doubts ask us first!!)</p>
+<p>The main goal of this exercise is for you to understand how the tool works and the different issues it identifies. In order to do that, four simple functions are presented to you. You should start fixing them in order.</p>
+<p>Have fun :)</p>
+<h3 id="exercise-1a">Exercise 1.a.</h3>
+<p>In this function, it is expected that you fix 3 (+1 bonus) different issues.</p>
+<pre><code class="language-JavaScript"><div>
+<span class="hljs-comment">// return the op between two POSITIVE numbers </span>
+<span class="hljs-comment">// if the numbers are not &gt;= 0, returns -1</span>
+<span class="hljs-comment">// if op is not SUM, SUB, PROD or DIV, returns -2</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">exA</span>(<span class="hljs-params">a, b, op, op</span>) </span>{
+  <span class="hljs-keyword">let</span> res;
+  <span class="hljs-keyword">if</span> (a &lt; <span class="hljs-number">0</span> || b &lt; <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">return</span> - <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">switch</span> (op) {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;SUM&#x27;</span>:
+      res = a + b;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;SUB&#x27;</span>:
+      res = a - b;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;PROD&#x27;</span>:
+      res = a * b;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-comment">// sonarLint does not flag this, ESlint would...</span>
+    <span class="hljs-comment">// lets pretend it does and fix it anyways :)</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;SUM&#x27;</span>:
+      res = a + b;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;DIV&#x27;</span>:
+      res = a / b;
+      <span class="hljs-keyword">break</span>;
+  }
+  <span class="hljs-keyword">return</span> res;
+}
+
+</div></code></pre>
+<h3 id="exercise-1b">Exercise 1.b.</h3>
+<p>In this function, it is expected that you fix 4 different issues.</p>
+<pre><code class="language-JavaScript"><div>
+<span class="hljs-comment">// returns INVALID OP if the result of the op between 2 nr is &lt; 0</span>
+<span class="hljs-comment">// returns ZERO if the result of the op between 2 nr is == 0</span>
+<span class="hljs-comment">// returns POSITIVE if the result of the op between 2 nr is &gt; 0</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">exB</span>(<span class="hljs-params">a, b, op</span>) </span>{
+  <span class="hljs-keyword">const</span> value = exA(a, b);
+  <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;INVALID OP&#x27;</span>;
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value == <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;ZERO&#x27;</span>;
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value_ &gt; <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;POSITIVE&#x27;</span>;
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;NEGATIVE&#x27;</span>;
+  }
+}
+
+</div></code></pre>
+<h3 id="exercise-1c">Exercise 1.c.</h3>
+<p>In this function, it is expected that you fix 5 different issues.</p>
+<pre><code class="language-JavaScript"><div><span class="hljs-comment">// returns true if the result of the op between two positive numbers is &gt;= 0, false otherwise</span>
+<span class="hljs-comment">// yes, there are better ways to do this, just do the exercise ;)</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">exC</span>(<span class="hljs-params">a, b, op</span>) </span>{
+  <span class="hljs-keyword">const</span> value = exB(a, b, op);
+  <span class="hljs-keyword">if</span> (vallue != <span class="hljs-string">&#x27;INAVLID OP&#x27;</span>) {
+    <span class="hljs-keyword">const</span> c = <span class="hljs-literal">true</span>;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">const</span> b = <span class="hljs-literal">false</span>;
+  }
+  <span class="hljs-keyword">return</span> c;
+}
+</div></code></pre>
+<h3 id="exercise-1d">Exercise 1.d.</h3>
+<p>In this function, it is expected that you fix 2 different issues.</p>
+<pre><code class="language-JavaScript"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">exD</span>(<span class="hljs-params">a, b</span>) </span>{
+  <span class="hljs-keyword">const</span> ops = [<span class="hljs-string">&quot;SUB&quot;</span>, <span class="hljs-string">&quot;PROD&quot;</span>, <span class="hljs-string">&quot;DIV&quot;</span>];
+  <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">let</span> max = exA(a,b, <span class="hljs-string">&quot;SUM&quot;</span>);
+  <span class="hljs-keyword">while</span> (i &lt; <span class="hljs-number">3</span>) {
+    <span class="hljs-keyword">const</span> opRes = exA(a,b, ops[i])
+    <span class="hljs-keyword">if</span> (opRes &gt; max)
+      max = opRes
+  }
+  <span class="hljs-keyword">return</span> max
+}
+</div></code></pre>
+<h2 id="exercise-2">Exercise 2</h2>
+<p>file: <em>ex2.js</em></p>
+<p>solution: <em>sol2.js</em> (nooo!)</p>
+<p>This exercise presents a more “real” application of this tool. It is a very simple program that implements the tic tac toe game. As in the previous exercise, we advise you to fix the issues in order.</p>
+<p>We are expecting you to encounter around 15/16 issues (it will depend on your resolution).</p>
+<p>Have fuuuun! When you FINISH the exercise you can play the game in the index.html file ;)</p>
+<pre><code class="language-JavaScript"><div><span class="hljs-keyword">const</span> statusDisplay = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.game--status&#x27;</span>);
+
+<span class="hljs-keyword">const</span> gameActive = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">let</span> currentPlayer = <span class="hljs-string">&#x27;X&#x27;</span>;
+<span class="hljs-keyword">let</span> gameState = [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>];
+
+<span class="hljs-keyword">const</span> winningMessage = <span class="hljs-function">() =&gt;</span> <span class="hljs-string">`Player <span class="hljs-subst">${currentPlayer}</span> has won!`</span>;
+<span class="hljs-keyword">const</span> drawMessage = <span class="hljs-function">() =&gt;</span> <span class="hljs-string">&#x27;Game ended in a draw!&#x27;</span>;
+<span class="hljs-keyword">const</span> currentPlayerTurn = <span class="hljs-function">() =&gt;</span> <span class="hljs-string">`It&#x27;s <span class="hljs-subst">${currentPlayer}</span>&#x27;s turn`</span>;
+
+statusDisplay.innerHTML = currentPlayerTurn();
+
+<span class="hljs-keyword">const</span> winningConditions = [
+  [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>],
+  [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>],
+  [<span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>],
+  [<span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>],
+  [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">7</span>],
+  [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>],
+  [<span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>],
+  [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>],
+];
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleCellPlayed</span>(<span class="hljs-params">clickedCell, clickedCellIndex</span>) </span>{
+  gameState[clickedCellIndex] = currentPlayer;
+  clickedCell.innerHTML = currentPlayer;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handlePlayerChange</span>(<span class="hljs-params"></span>) </span>{
+  currentPlayer = currentPlayer === <span class="hljs-string">&#x27;X&#x27;</span> ? <span class="hljs-string">&#x27;O&#x27;</span> : <span class="hljs-string">&#x27;X&#x27;</span>;
+  nextPlayer = currentPlayer;
+  statusDisplay.innerHTML = currentPlayerTurn();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleResultValidation</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">let</span> roundWon = <span class="hljs-literal">false</span>;
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt;= <span class="hljs-number">7</span>; i++) {
+    <span class="hljs-keyword">const</span> winCondition = winningConditions[i];
+    <span class="hljs-keyword">const</span> a = gameState[winCondition[<span class="hljs-number">0</span>]];
+    <span class="hljs-keyword">let</span> b = gameState[winCondition[<span class="hljs-number">0</span>]];
+    b = gameState[winCondition[<span class="hljs-number">1</span>]];
+    <span class="hljs-keyword">const</span> c = gameState[winCondition[<span class="hljs-number">2</span>]];
+    <span class="hljs-keyword">const</span> val = <span class="hljs-literal">false</span>;
+
+
+    <span class="hljs-keyword">if</span> (a ===<span class="hljs-string">&#x27;&#x27;</span> || b === <span class="hljs-string">&#x27;&#x27;</span> || c === <span class="hljs-string">&#x27;&#x27;</span>) {
+      <span class="hljs-keyword">continue</span>;
+    }
+    <span class="hljs-keyword">if</span> (a === b &amp;&amp; b === c) {
+      roundWon = <span class="hljs-literal">true</span>;
+      <span class="hljs-keyword">break</span>;
+    }
+  }
+
+  <span class="hljs-keyword">if</span> (roundWon) {
+    statusDisplay.innerHTML = winningMessage();
+    gameActive = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">return</span>;
+  }
+
+  <span class="hljs-keyword">const</span> roundDraw = !gameState.includes(<span class="hljs-string">&#x27;&#x27;</span>);
+  <span class="hljs-keyword">if</span> (roundDraw) {
+    statusDisplay.innerHTML = drawMessage();
+    gameActive = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">return</span>;
+  }
+
+  handlePlayerChange();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleCellClick</span>(<span class="hljs-params">clickedCellEvent</span>) </span>{
+  <span class="hljs-keyword">const</span> clickedCell = clickedCellEvent.target;
+  <span class="hljs-keyword">const</span> clickedCellIndex = <span class="hljs-built_in">parseInt</span>(clickedCell.getAttribute(<span class="hljs-string">&#x27;data-cell-index&#x27;</span>));
+
+  <span class="hljs-keyword">if</span> (gameState[clickedCellIndex] != <span class="hljs-string">&#x27;&#x27;</span> || !gameActive) {
+    <span class="hljs-keyword">return</span>;
+  }
+
+  handleCellPlayed(clickedCell, clickedCellIndex);
+  handleResultValidation();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleRestartGame</span>(<span class="hljs-params"></span>) </span>{
+  gameActive = <span class="hljs-literal">true</span>;
+  currentPlayer = <span class="hljs-string">&#x27;X&#x27;</span>;
+  gameState = [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>];
+  statusDisplay.innerHTML = currentPlayerTurn();
+  <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">&#x27;.cell&#x27;</span>).forEach(<span class="hljs-function">(<span class="hljs-params">cell</span>) =&gt;</span> cell.innerHTML = <span class="hljs-string">&#x27;&#x27;</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setGameActive</span>(<span class="hljs-params">value, oldValue</span>) </span>{
+  gameActive = value;
+}
+
+<span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">&#x27;.cell&#x27;</span>).forEach(<span class="hljs-function">(<span class="hljs-params">cell</span>) =&gt;</span> cell.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, handleCellClick));
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.game--restart&#x27;</span>).addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, handleRestartGame);
+
+</div></code></pre>
+
+    </body>
+    </html>

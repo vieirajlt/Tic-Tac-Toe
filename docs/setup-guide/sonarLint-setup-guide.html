@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Setup</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="setup">Setup</h1>
+<p>You will be using SonarLint in the exercise.</p>
+<h2 id="needed-tools">Needed tools</h2>
+<ol>
+<li>Git</li>
+<li>VS Code</li>
+</ol>
+<h3 id="1-install-git">1. Install Git</h3>
+<p>If you don't have git:</p>
+<ol>
+<li>How?!</li>
+<li>Get it from <a href="https://git-scm.com/downloads">here</a></li>
+</ol>
+<h3 id="2-install-vs-code">2. Install VS Code</h3>
+<p>If you don't have VS Code, please install it from <a href="https://code.visualstudio.com/download">here</a>.</p>
+<h3 id="3-install-sonarlint">3. Install SonarLint</h3>
+<p>If you don't have VS Code, please install it from <a href="https://www.sonarlint.org/vscode">here</a> or search <code>SonarLint</code> in the extensions in VS Code and select the first result.</p>
+<h3 id="4-configure-sonarlint">4. Configure SonarLint</h3>
+<ol>
+<li>
+<p>In VS Code go to user settings</p>
+<p>Ctrl (or Cmd) + Shift + P -&gt; type 'user settings'</p>
+</li>
+<li>
+<p>in settings search for sonarLint</p>
+</li>
+<li>
+<p>click on &quot;edit on settings.json&quot;</p>
+</li>
+<li>
+<p>replace the rules section with:</p>
+</li>
+</ol>
+<pre><code><code><div>&quot;sonarlint.rules&quot;: {
+        &quot;javascript:S1440&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S3827&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S109&quot;: {
+            &quot;level&quot;: &quot;off&quot;
+        },
+        &quot;javascript:S126&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S117&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S3758&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S3504&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S1145&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S1066&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S2583&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S134&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S1541&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S1186&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S4144&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S3353&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S1172&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S909&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S131&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S3801&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S1067&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S3626&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S1774&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        },
+        &quot;javascript:S2392&quot;: {
+            &quot;level&quot;: &quot;on&quot;
+        }
+    }
+</div></code></code></pre>
+<h2 id="getting-the-exercise">Getting the exercise</h2>
+<h2 id="clone-it">Clone it:</h2>
+<pre><code><code><div>git clone https://github.com/vieirajlt/Tic-Tac-Toe.git
+</div></code></code></pre>
+<h2 id="install-npm-dependencies">Install npm dependencies</h2>
+<pre><code><code><div>npm install --yes
+</div></code></code></pre>
+
+    </body>
+    </html>

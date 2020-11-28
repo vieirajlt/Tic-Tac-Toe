@@ -26,7 +26,7 @@ If you don't have VS Code, please install it from [here](https://www.sonarlint.o
 
 1. In VS Code go to user settings
 
-f1 -> search settings -> user settings
+    Ctrl (or Cmd) + Shift + P -> type 'user settings'
 
 2. in settings search for sonarLint
 
@@ -107,9 +107,6 @@ f1 -> search settings -> user settings
         }
     }
 ```
-
-
-
 
 ## Getting the exercise
 
