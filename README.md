@@ -7,4 +7,4 @@ If you're interested in a type supported version of the game checkout the `types
 
 # Demo video
 
-https://drive.google.com/file/d/1oMdxkJO4_WhWoPKZ0xWv4vMu9fDHonFL/view?usp=sharing
+[Google Drive Video](https://drive.google.com/file/d/1oMdxkJO4_WhWoPKZ0xWv4vMu9fDHonFL/view?usp=sharing)
