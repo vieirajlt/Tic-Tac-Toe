@@ -229,3 +229,111 @@ document.querySelectorAll('.cell').forEach((cell) => cell.addEventListener('clic
 document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
 
 ```
+
+### Christmas challenge
+_(From Advent of code 2019)_
+
+*--- PART 01 ---*
+
+The Elves quickly load you into a spacecraft and prepare to launch.
+
+At the first Go / No Go poll, every Elf is Go until the Fuel Counter-Upper. They haven't determined the amount of fuel required yet.
+
+Fuel required to launch a given module is based on its mass. Specifically, to find the fuel required for a module, take its mass, divide by three, round down, and subtract 2.
+
+For example:
+* For a mass of 12, divide by 3 and round down to get 4, then subtract 2 to get 2.
+* For a mass of 14, dividing by 3 and rounding down still yields 4, so the fuel required is also 2.
+* For a mass of 1969, the fuel required is 654.
+* For a mass of 100756, the fuel required is 33583.
+
+The Fuel Counter-Upper needs to know the total fuel requirement. To find it, individually calculate the fuel needed for the mass of each module (your puzzle input), then add together all the fuel values.
+
+What is the sum of the fuel requirements for all of the modules on your spacecraft?
+(the puzzle input is in the repository)
+
+*--- PART 02 ---*
+
+During the second Go / No Go poll, the Elf in charge of the Rocket Equation Double-Checker stops the launch sequence. Apparently, you forgot to include additional fuel for the fuel you just added.
+
+Fuel itself requires fuel just like a module - take its mass, divide by three, round down, and subtract 2. However, that fuel also requires fuel, and that fuel requires fuel, and so on. Any mass that would require negative fuel should instead be treated as if it requires zero fuel; the remaining mass, if any, is instead handled by wishing really hard, which has no mass and is outside the scope of this calculation.
+
+So, for each module mass, calculate its fuel and add it to the total. Then, treat the fuel amount you just calculated as the input mass and repeat the process, continuing until a fuel requirement is zero or negative. For example:
+
+* A module of mass 14 requires 2 fuel. This fuel requires no further fuel (2 divided by 3 and rounded down is 0, which would call for a negative fuel), so the total fuel required is still just 2.
+* At first, a module of mass 1969 requires 654 fuel. Then, this fuel requires 216 more fuel (654 / 3 - 2). 216 then requires 70 more fuel, which requires 21 fuel, which requires 5 fuel, which requires no further fuel. So, the total fuel required for a module of mass 1969 is 654 + 216 + 70 + 21 + 5 = 966.
+* The fuel required by a module of mass 100756 and its fuel is: 33583 + 11192 + 3728 + 1240 + 411 + 135 + 43 + 12 + 2 = 50346.
+
+What is the sum of the fuel requirements for all of the modules on your spacecraft when also taking into account the mass of the added fuel? (Calculate the fuel requirements for each module separately, then add them all up at the end.)
+
+*Solution:*
+- Part 01: 3342946
+- Part 02: 5011553
+
+### Day of Programmer Challenge
+
+Marie invented a Time Machine and wants to test it by time-traveling to visit Russia on the Day of the Programmer (the 256th day of the year) during a year in the inclusive range from 1700 to 2700.
+
+From 1700 to 1917, Russia's official calendar was the Julian calendar; since 1919 they used the Gregorian calendar system. The transition from the Julian to Gregorian calendar system occurred in 1918, when the next day after January 31st was February 14th. This means that in 1918, February 14th was the 32nd day of the year in Russia.
+
+In both calendar systems, February is the only month with a variable amount of days; it has 29 days during a leap year, and 28 days during all other years. In the Julian calendar, leap years are divisible by 4; in the Gregorian calendar, leap years are either of the following:
+* Divisible by 400
+* Divisible by 4 and not divisile by 100
+
+Given a year, `y`, find the date of the 256th day of that year according to the official Russian calendar during that year. Then print it in the format `dd.mm.yyyy`, where `dd` is the two-digit day, `mm` is the two-digit month, and `yyyy` is `y`.
+
+For example, the given  *_year_* = 1984. 1984 is divisible by 4, so it is a leap year. The 256th day of a leap year after 1918 is September 12, so the answer is `12.09.1980`.
+
+*Function descrition*
+
+Create a function to calculate the day of the programmer. It should return a string representing the date of the 256th day of the year given.
+
+`dayOfProgrammer` has the following parameter(s):
+* year: an integer
+
+_Input Format_: A single input denoting year y
+
+_Constraints_: y between 1700 and 2700
+
+_Output Format_: Print the full date of Day of the Programmer during year `y` in the format `dd.mm.yyyy`, where `dd` is the two-digit day, `mm` is the two-digit month, and `yyyy` is `y`.
+
+*Sample Input 0*
+
+```2017```
+
+
+*Sample Output 0*
+
+```13.09.2017```
+
+*Explanation 0*
+
+In the year  y = 2017, January has 31 days, February has 28 days, March has 31 days, April has 30 days, May has 31 days, June has 30 days, July has 31 days, and August has 31 days. When we sum the total number of days in the first eight months, we get 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 = 243. Day of the Programmer is the 256th day, so then calculate 256 - 243 = 13 to determine that it falls on day 13 of the 9th month (September). We then print the full date in the specified format, which is 13.09.2017.
+
+*Sample Input 1*
+
+```2016```
+
+
+*Sample Output 1*
+
+```12.09.2016```
+
+*Explanation 1*
+
+Year  y = 2016 is a leap year, so February has 29 days but all the other months have the same number of days as in 2017. When we sum the total number of days in the first eight months, we get 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 = 244. Day of the Programmer is the 256th day, so then calculate 256 - 244 = 12 to determine that it falls on day 12 of the 9th month (September). We then print the full date in the specified format, which is 12.09.2016.
+
+*Sample Input 2*
+
+```2800```
+
+
+*Sample Output 2*
+
+```12.09.1800```
+
+*Explanation 2*
+
+Since 1800 is leap year as per Julian calendar. Day lies on 12 September.
+
+
