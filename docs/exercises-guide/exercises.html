@@ -577,9 +577,9 @@ statusDisplay.innerHTML = currentPlayerTurn();
 <li>For a mass of 1969, the fuel required is 654.</li>
 <li>For a mass of 100756, the fuel required is 33583.</li>
 </ul>
-<p>The Fuel Counter-Upper needs to know the total fuel requirement. To find it, individually calculate the fuel needed for the mass of each module (your puzzle input), then add together all the fuel values.</p>
+<p>The Fuel Counter-Upper needs to know the total fuel requirement. To find it, individually calculate the fuel needed for the mass of each module (<em>puzzle_input.txt</em>), then add together all the fuel values.</p>
 <p>What is the sum of the fuel requirements for all of the modules on your spacecraft?
-(the puzzle input is in the repository)</p>
+(<em>puzzle_input.txt</em>)</p>
 <p><em>--- PART 02 ---</em></p>
 <p>During the second Go / No Go poll, the Elf in charge of the Rocket Equation Double-Checker stops the launch sequence. Apparently, you forgot to include additional fuel for the fuel you just added.</p>
 <p>Fuel itself requires fuel just like a module - take its mass, divide by three, round down, and subtract 2. However, that fuel also requires fuel, and that fuel requires fuel, and so on. Any mass that would require negative fuel should instead be treated as if it requires zero fuel; the remaining mass, if any, is instead handled by wishing really hard, which has no mass and is outside the scope of this calculation.</p>
