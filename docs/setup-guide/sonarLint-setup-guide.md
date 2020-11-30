@@ -3,28 +3,28 @@
 You will be using SonarLint in the exercise.
 
 ## Needed tools
-1. Git
-2. VS Code
+1. _Git_
+2. _VS Code_
 
 
 ### 1. Install Git
 
-If you don't have git:
+If you don't have _Git_:
   1. How?!
   2. Get it from [here](https://git-scm.com/downloads)
 
 ### 2. Install VS Code 
 
-If you don't have VS Code, please install it from [here](https://code.visualstudio.com/download).
+If you don't have _VS Code_, please install it from [here](https://code.visualstudio.com/download).
 
 ### 3. Install SonarLint
 
 
-If you don't have VS Code, please install it from [here](https://www.sonarlint.org/vscode) or search `SonarLint` in the extensions in VS Code and select the first result.
+If you don't have _SonarLint_, please install it from [here](https://www.sonarlint.org/vscode) or search `SonarLint` in the extensions in _VS Code_ and select the first result.
 
 ### 4. Configure SonarLint
 
-1. In VS Code go to user settings
+1. In _VS Code_ go to user settings
 
     Ctrl (or Cmd) + Shift + P -> type 'user settings'
 

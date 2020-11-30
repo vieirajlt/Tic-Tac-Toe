@@ -1,30 +1,371 @@
 <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Exercises</title>
-        <style>
-</style>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<html>
+<head>
+<title>exercises.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
 <style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
-        <style>
-.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
 </style>
-        
-        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
-        
-    </head>
-    <body class="vscode-body vscode-light">
-        <h1 id="exercises">Exercises</h1>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="exercises">Exercises</h1>
 <p>Just to give you some context, sometimes we make some not very smart mistakes (we are only human…). Tools like SonarLint are a valuable help in these situations. SonarLint statically analyzes code to quickly find issues.</p>
 <p>For all the exercises proposed you should take some time to analyze the code WITHOUT using the tool. As an exceptionally talented programmer, you should be able to catch some of these issues without using it.</p>
 <p>Then you can view the code on <em>VS Code</em> and <em>SonarLint</em> will outline the issues for you and give tips for fixing them! As easy as that!</p>
@@ -34,10 +375,10 @@
 <p>file: <em>ex1.js</em></p>
 <p>solution: <em>sol1.js</em> (don't do it, any doubts ask us first!!)</p>
 <p>The main goal of this exercise is for you to understand how the tool works and the different issues it identifies. In order to do that, four simple functions are presented to you. You should start fixing them in order.</p>
-<p>Have fun :)</p>
+<p>Have fun <img class="emoji" alt="smiley" src="data:image/png;base64,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" /></p>
 <h3 id="exercise-1a">Exercise 1.a.</h3>
 <p>In this function, it is expected that you fix 3 (+1 bonus) different issues.</p>
-<pre><code class="language-JavaScript"><div>
+<pre class="hljs"><code><div>
 <span class="hljs-comment">// return the op between two POSITIVE numbers </span>
 <span class="hljs-comment">// if the numbers are not &gt;= 0, returns -1</span>
 <span class="hljs-comment">// if op is not SUM, SUB, PROD or DIV, returns -2</span>
@@ -46,20 +387,20 @@
   <span class="hljs-keyword">if</span> (a &lt; <span class="hljs-number">0</span> || b &lt; <span class="hljs-number">0</span>)
     <span class="hljs-keyword">return</span> - <span class="hljs-number">1</span>;
   <span class="hljs-keyword">switch</span> (op) {
-    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;SUM&#x27;</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-string">'SUM'</span>:
       res = a + b;
       <span class="hljs-keyword">break</span>;
-    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;SUB&#x27;</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-string">'SUB'</span>:
       res = a - b;
-    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;PROD&#x27;</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-string">'PROD'</span>:
       res = a * b;
       <span class="hljs-keyword">break</span>;
     <span class="hljs-comment">// sonarLint does not flag this, ESlint would...</span>
     <span class="hljs-comment">// lets pretend it does and fix it anyways :)</span>
-    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;SUM&#x27;</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-string">'SUM'</span>:
       res = a + b;
       <span class="hljs-keyword">break</span>;
-    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;DIV&#x27;</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-string">'DIV'</span>:
       res = a / b;
       <span class="hljs-keyword">break</span>;
   }
@@ -69,31 +410,31 @@
 </div></code></pre>
 <h3 id="exercise-1b">Exercise 1.b.</h3>
 <p>In this function, it is expected that you fix 4 different issues.</p>
-<pre><code class="language-JavaScript"><div>
+<pre class="hljs"><code><div>
 <span class="hljs-comment">// returns INVALID OP if the result of the op between 2 nr is &lt; 0</span>
 <span class="hljs-comment">// returns ZERO if the result of the op between 2 nr is == 0</span>
 <span class="hljs-comment">// returns POSITIVE if the result of the op between 2 nr is &gt; 0</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">exB</span>(<span class="hljs-params">a, b, op</span>) </span>{
   <span class="hljs-keyword">const</span> value = exA(a, b);
   <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">0</span>) {
-    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;INVALID OP&#x27;</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'INVALID OP'</span>;
   } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value == <span class="hljs-number">0</span>) {
-    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;ZERO&#x27;</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'ZERO'</span>;
   } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value_ &gt; <span class="hljs-number">0</span>) {
-    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;POSITIVE&#x27;</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'POSITIVE'</span>;
   } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">0</span>) {
-    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;NEGATIVE&#x27;</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'NEGATIVE'</span>;
   }
 }
 
 </div></code></pre>
 <h3 id="exercise-1c">Exercise 1.c.</h3>
 <p>In this function, it is expected that you fix 5 different issues.</p>
-<pre><code class="language-JavaScript"><div><span class="hljs-comment">// returns true if the result of the op between two positive numbers is &gt;= 0, false otherwise</span>
+<pre class="hljs"><code><div><span class="hljs-comment">// returns true if the result of the op between two positive numbers is &gt;= 0, false otherwise</span>
 <span class="hljs-comment">// yes, there are better ways to do this, just do the exercise ;)</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">exC</span>(<span class="hljs-params">a, b, op</span>) </span>{
   <span class="hljs-keyword">const</span> value = exB(a, b, op);
-  <span class="hljs-keyword">if</span> (vallue != <span class="hljs-string">&#x27;INAVLID OP&#x27;</span>) {
+  <span class="hljs-keyword">if</span> (vallue != <span class="hljs-string">'INAVLID OP'</span>) {
     <span class="hljs-keyword">const</span> c = <span class="hljs-literal">true</span>;
   } <span class="hljs-keyword">else</span> {
     <span class="hljs-keyword">const</span> b = <span class="hljs-literal">false</span>;
@@ -103,10 +444,10 @@
 </div></code></pre>
 <h3 id="exercise-1d">Exercise 1.d.</h3>
 <p>In this function, it is expected that you fix 2 different issues.</p>
-<pre><code class="language-JavaScript"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">exD</span>(<span class="hljs-params">a, b</span>) </span>{
-  <span class="hljs-keyword">const</span> ops = [<span class="hljs-string">&quot;SUB&quot;</span>, <span class="hljs-string">&quot;PROD&quot;</span>, <span class="hljs-string">&quot;DIV&quot;</span>];
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">exD</span>(<span class="hljs-params">a, b</span>) </span>{
+  <span class="hljs-keyword">const</span> ops = [<span class="hljs-string">"SUB"</span>, <span class="hljs-string">"PROD"</span>, <span class="hljs-string">"DIV"</span>];
   <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;
-  <span class="hljs-keyword">let</span> max = exA(a,b, <span class="hljs-string">&quot;SUM&quot;</span>);
+  <span class="hljs-keyword">let</span> max = exA(a,b, <span class="hljs-string">"SUM"</span>);
   <span class="hljs-keyword">while</span> (i &lt; <span class="hljs-number">3</span>) {
     <span class="hljs-keyword">const</span> opRes = exA(a,b, ops[i])
     <span class="hljs-keyword">if</span> (opRes &gt; max)
@@ -120,16 +461,16 @@
 <p>solution: <em>sol2.js</em> (nooo!)</p>
 <p>This exercise presents a more “real” application of this tool. It is a very simple program that implements the tic tac toe game. As in the previous exercise, we advise you to fix the issues in order.</p>
 <p>We are expecting you to encounter around 15/16 issues (it will depend on your resolution).</p>
-<p>Have fuuuun! When you FINISH the exercise you can play the game in the index.html file ;)</p>
-<pre><code class="language-JavaScript"><div><span class="hljs-keyword">const</span> statusDisplay = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.game--status&#x27;</span>);
+<p>Have fuuuun! When you FINISH the exercise you can play the game in the index.html file <img class="emoji" alt="wink" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAUTElEQVR4Xu2bC5Bc5ZXff+f7bvft7ul5ajQzkiyeQhgwLoyEwDLW8lpjmzJrLDB4Bcs6OKFcduXhlDe76ySYSirZmMRxOcEbb8Xx2oYiZcfLw/YuZsHlzQowIDDGa0sIvUASaCTN89Gve7/vZG73V3WrNKNXEWGqdm/pr3Nnuqf7/P7f+c70uT0tqsrf58Pw9/r4BwP+wYDoVAPcLWJuvZWzIuVCDBeIsEpgxFjpQ6kAINS800mFA6rswPOrVPjlffex6y5Vzyk8TkkTFBHZfRvrVLi+YPmAKcj5tmAqpmgwRUGMgBWAXE5Rr/hWJo9LfM0n+uvE8Zgoj5z5HZ5VVX1bG/D89VJZ0sfHjeUfFUvmfbZsjKlYTJyBK2I8YhWxAnKEAaqoyySoN/iW4JseX3O4uvethn/SO/7X2CTfXfOI1t5WPeCnV0q05/fk94eXyjOVHvvNrpH4/fGK2MTLI+KlSnGppTgySGnVRcTvupZ4ze9RuuzTlNf/s0zZefa97LbsPtl9s59p/2z2GNljZY+ZPXb2HNlzZc/5tqiA7ZtkXanAfyhV7dVRb0TUY5HYYUoRUd9KzMh7MMNrkOoqpDQAUQXEggBoABBQQB2kNbQxjs7uwI8+jz/wc9LJvfhGijYt6bQjnUppzLonGgl/vPp+ffY3YoCIyK5NfK5UkbuL/YUu21cgqnhMJSIavhB7+gcwS9dBeSDApYCHYDgCKIucC2BAIhCgPo4/9Czu1cdIR3+Jr6WkNYObTGhNJHONmt511v18WVX11BsQwLfcRM/SMv+91G1vLQwWiXottuyIhlZjV23EDF0GUQm0BeoQMQAnLVUfqqUIaQN/8Ge4Hd8nPbgdV7ekU47kcIvGjLvvUJ3Prv0e08GIU2BAgH/hepYNDHB/pTe6ojBcJOoWoup8PPtazBkbkbgPfAOBhY1OTpSchQ0SwJTQ5iR+z7wJO39MOtsinVGS0Ra1qfSn4+NsuvgR3jgZE6KThR8c4KHSksIl8dIY2w1Rfz/ReZ/ADL8fNEHSKRA5FtjJS4N3aROsxa7ahHSfhmx9ADETGFOCqHmFIXloPsePisgJmxCdKPyj19I/D/9AG34kgxcK/UuILrgD6T8PcVOALNzbvHmRoyAKUMMMraNQ6EZ+9Q2wY8Q2BrhkkOSB+VxvEJGJEzEhOhF4wLxzhK+W+qMN8VCM7THz8H1E592G6TkDkgkQk8NzygzIK8LVkZ4ziM6/DbZ+C2SS2MfgdcM7Nf0qcLuI+OOZEJ0I/PZb+Vy5x24qDBWJ+ixR93w86zqkuhLSyQ68njTwmzckbWQ5tHNh+/9BaOF9kXKqm7bf6n6x+j6+nJtwUk0wh3/qJtac0S8/Ka0odRWXxkQ9EK28HLPiGiAFEYQc/i2TBh9UgQi//3HSvZtJp6F1qEljf2Nuz4Retf57PA8c1YToWPC3DVNa0c098ZJCV6G/QFQ12P4RzOB7wM8BigT634QBgnb4kXZOdnYX+ANoWkAbrmtF2rpnnuHD3xmlkVfCiW0BAcwXruHmctVuiObhbbWAKRvMkneBNeBqiLCw4xuByIAx4BwknlN5iAYTbIRZciFaO4RNhajfUZ5zG75wjbv5O/fzHUCB4xmQr/4fraOnK5Y/aMN3z6skmOogUhkBN4uIggpIDk4c4WabvLZrgomJGstGeubVC/oWVIIXpDLcztEmh/DdhbYJXbP+D/5onT78H59lSkQ0O45XAQawn1jFxrjHnhv1RJjyvGKDVFeAKOJr+cpDG7xVT3j8L7fx2BNb2bd/jNFDCeeeP8K992wkLgBeT30lSNTO0dTG2jlnucc96bmfWJVunDfgW4ACbnED8tWXSweIu0tyRzbYmK4IWzJIHCOlXsTXAZ+vfLnAnldG+dP/+RQ7tr9ByULZwNUfuoQbfve3iYtT0AqGnfKekECWYxxjkya+qzOcdU+7Oy4d0P/9zDhOQhkcrQIEsH+ygYvLFVlrqxGmZDFFgxTLiInA1UEUAEoRLz23l6987UlcvcZIFfqXD3PdJ2/kvetXwfQemBznLeuQKlmO7VxNMWnnnjGUK8naP9mgF1/5EE8DHjiqAQaww1VzfaFqjalYbNEikYEoBlLQBBSILa9sHeW/3vskBdeiK4Z3rnsXN3/mdxiszMGrfwvegVje2kPauUpk2rm7iiVjGa5yPfhnAQf43IAjmt9Z/RTKJb1S2ldyLFIwSCQYG4FvAh6sMDOe8qffeB6TNCkX4NLrLuOm29dTmNoO+6bAWEBAkzc3DRkBm/8sXsEpRz9MO1cfSZZ7h6FiKZfSKzO2XROk+TaA6IjszF1rOCsuybm2bJGixWQGWAu4jgHqoWh55C93cGD/JP1l4fIbLuHG3303cuBX0EzAGPA+h1EFfIj51zmoAAZEgKCiBWOoTyeMT7ZopZ7IGnq7I3p6i1AwkHpIFZT8EAM4xGa5a5shY8mY7lqjZ93+OFsD66IG2JXdXBjFpmxig4kEwvU7tAm+BtYwcaDF5mfeIDZw6Ycu4Mabz0b2bYUkBfGQuLBVXC4UNIcOMReSx4Jh9/aUB5+YZfuuOrNzLdJUiaxQqUQMLS1z0fl9rF8zwPJ3lHMjREC1k6t0cs8YMpaMaWW3vxDYHlhZtAL6yuZ8GwtSEMQaxEimDlA6A4UKv94xxf59dd531XJu2XQasncrtOqAJ4dVsAJGIM1X+rjbIVJe29fgn/67/dRmPEO9UC4KZSOIgp9NeW2qwcsvj/Pwj/dxxXsHueUjI3R1R9AM8JqEvANDQciYMjbwDx7NAJMpjvRsiUwHvg0QShMgnYM0ZbZRZ2hVN7//qWUUD++AegJGcrBMscwDOGbmHMNLC4CC4/iHh1JfietvP52eLkN/b4QBGnXH9FiTw280GJvX+GiTqemEB3+4n5e2TfHHdy5neNBC2gppdHIXG0yIDHGUnk3gzA3IG2AmWxCGCKUvEuAxecXWGrzvvV2svXYpSxpzMJt2TIJcsfDci3W+9sAY41Mpl1/cxWc3LaEcm+M0MMDBUI/wjz/eD0bAeVDAGjCmHWeb8MaBhF+/NM0LT47xs6cn+dKf7eVLn1+OBdCAI77DYAUioc0GFpDQCPXILVCwEX0S9j0WhHzqEhFQqLoW1akEGg7C98gtZfRAwr33HcI1Pct7hM3PzjDQY7njlgFwx5mbBWiksGtiYasQAYFq0XJOtcA5H+zhwx9ewksv13l9dw2vikFBAw4QcMmYMjagcMweYISSmACuHYkqCKgG0qYLCYXbyJmIDH+7ZQ5tec4ethQsdBWFLS/NccM13Qz0WXCeYx6FMFAFBjTIK6QKzbSz7Q7WKBQMa4ZKrFleQkfr4IPBwYiQOmIgYwPMYgbkI42AoqC5A6oeNG8FqB790peD3ftaDFaF3pIQhSqaGfe8eiBhYFCOvg0EKAoHDyT8fFuTvW+ktBKlFAsjSyynLStwxooC1V4LTdC2IQ4dnQUCJcAR+UOHSQQIBgSFLZCjGOdp4AjQDlVB1ELgFQI/CrLYFTCl2XSUCkIUQWQgLoBVqCcpRBYSPerK//AnNR54ZJpGwxNbwRggLLwHenssV6yrcONvd1GMQB0ghDwdCqCBTl1H3oODjC0YoEELZ4HUM63eoy5FnYAGMyQgquYOSyYFyX3NiKs9QmMchNzeYlGodDugCWYRA2LhxZcS/vx7MyytCmcOWApWEMB7SB2kqkzWPPfPG5SmKbdvrKD1fBEUyRRyBNrgSWDxZGzHuh6gAM2Uw23HvEPVoN4geNDAIpqbQG53EFIUzjhb2Lc99ypJodxleMfpHjQFu/jq759IoQVdVjCJoA4oQLEsFIH6LJSlc3sNDyYBUURBQwKo5LvAK+pdYPFtNkAWDEOqqiKiAFMteXV5oqhT8CFhL2joSaEroqGKJG8pIAotuGy94ZnNwtSMUqkIYxPKez5gGRxKYNovfhUigQ1XW8Z9kbkxZdk7DMtONwwuM3R1CSIwNQk7tzkS4Lcusuh0K/BKLhWAYH6HQVNFE22zgRKQdbEKSF+d9jvPbVm8U7z3GDUIeZmDzw20igpgFAlRHYwMejbeafnBnzsOTinnXG74nZvbTWBxeAAP3dZx2+02zBIKjRTqCi0BhaE+OOcaA17gQBOvIEbACQiAhJ/N56aMoc3SgowNcEcbhz2QPvkGu64+xzdIfEmdQb0HJKy0gnhCFYDREMkjClOw9nzDOfcIMzVlxYBHJjz4Y7whLyG1/SkcOStp6EVzwISEkULAhhgEuRE4UB8qOfW4pm9kbEAC+KMZkHz7V+z73CXsLDX1Ak1DCWEQQKwG+I5UFJGwFQjwoRIY8/SWhd4icCjA2xObgPGQw4WlVEAEvCKmE1VlkbFCwz86uSeKbyqzdXZmbMcyQIHmXEIyOi0/W5IZkAA+CECCwrkEkccgCf1AIQWM5FVytEMW/SIHVMk5NSgvkMWrKQXNVFcyprmkTdRcuAXyRpgA9cf3+s2rV5pPRg01rgWmpKCSQwIsAFcwi8Vc5ATHdkE0h1QW0qmCLGYSiIJXwCkuBW0oaUN9xgTUgeRY1wQ9UPvyc2y75QL9u+EB/27bEnxisLHkqwsBUDpRJC99EfIIxAoecDnfCb17XAyxmYMucD/vD2GBQn9w4FNFmx5X94xP6d9lTEAtMBKEWcSA+nRC/cXX9SGd9W0Hw65BfRgsDGHezsubcI7NY+rhF78QZmaAKhATbl9EEmIMdMH+/bBtW3g8WfjY2JBDiCIAEswOpd9UdMaTsWRM0JZf/IVQvg3qwPQXNvM3l670ewZ6/RmmLJgySNGADSsvRyQOebJ07qMG/sv/gFbd8IkblfdvUAaGFOwRXd6E2IK9rwqPPiZ890Hh6quVP7xQYS6AIWDzczSIjtSBOkFbHl/3uBnP1ITfk7EA00D9RN4YSYGZnVPMPL1Xv/3BPv9vbZfBl8HEYVKzC1YuSIMBAqIUeuDjtwhf+0/Ct78p/OiHyup3wurVyvCI0l0F72FyGl7fJ2zbKux6BSYnhd4K3HBTMMnk2wYfzo2A70jIzzUB3wA3q7hJT8aQsUBb6XHfGgtVMAtMfvoJ/uZny/wLy7rdxVLpVIEpGLCC2ABvFyllQqzDh66HHVth62ah7IVtz8OLz4TJzIam5bModMXQH0PUBdd/Sjn3AmAsbDGVvH9IvvJIAM+UQtj3pFOO0cP+hYwBmARmT+bN0SYwOdWg9+sv6r3/qsfdK2VTklgoRB5jDUQgEpLLTQhH3hhtotzxL4Svz8LBl4XTh0BVcD50a8CajtRnTwpXbYSP3KQwAdh85DwSGhVwgiqoA9/wJHNKOuVpjLtGlvs8w3QwoHnCfygZnJoGxr6yhZ3P7JZvuDGHn/T4uU531QTU50lhJC9NMcEAoCV0F5R/cpewej005qCg0FuCgUpH1RhIoJXAFZvgljsVmVHQ/DcPmEVfdKink0ujk5uf8mS5ZjlnuQNjwPRJ/X1AUAsYByoffdA//Fy3nLOqkH6AQgRiMEYwUcjHCPmrN8J/ku/fmtJTVj75h8LTPxFe+CuY2q+oAwBTgpELhcs/Cue9W2FcIZX8MTTEAI3PFEq+Bb4OfkZJJj2tQyk79/rHPvqgPgwcDgwtgJMwIO8FwYTybT/UP3toox8atu6icOkesQZBUNF2BPIVQ4E8UAPbUi6/Ctb9lnBgn2H8INgIli6HkRGFROGQdgABNI8dcPKybwEtQWuKn/YkE/M66Di437+Y5QpMBPiw90/SgGCCE5FJoLBtnPhTj+qXvnGd+zdDcB4hJ/WCcQZioAASCRjNO7fX3JCUNmAxgtOG5rUCIEx7hzXv8MrC1c9XHRJBm+DrPlv5DvxoBu+2ZjnO53oAOAhMZgxv+g8lRaQbGAZWXL6S5V+/Vj6//DTznsJIhO01RN2CdBkkBikqUgAsYWgKEV10aAFAcmAEAngQ4ATCXtdU0DpozZPOKG7KkxxIeX2v//mdj+p/3ryPfcDrwKiqzhyPzX7xi1/keMf8fVp33323AvraNPrXO3n+qmH6ekTPljAgSpjYRAXV8PtZj1hRAhhHkQZ5E6Cls9qZWgINOk142pNOKW4sg3fs2OP/+qaH9asvjrbBDwCHVXXq//cnRiYDBa9MoWu/pf/t+x/TnevPTj5ZrtmSX2KxTcFWDVJSJBakCOJArED+snnh0KeEGJQS5nlCo1O0qWgd3JzHTSvpuKM+5hpP7ZRvbvwL/auQ3yhwKJwT9OYrIFQB81XQzN9fx3x3q+5LmmxZXdbhitdlGm7JYijbcG8JF1iDfF7m+EwEaIFU0FYm0IaiNfCz4GZ8p9zHPOmoy0r+ha88pff8y5/os8BYgD8MTKmqntK/Fge6gSVB/WVL970fZP0VZ8rH+gbNmVlfsN0GUxGkLNgiUJTQG8iHqLwCwCsaDOtM7YprgdYVX1PcbMeAycN+909361985lGeqjtmQrcfC5oJ8G/J5wWqQC/QD/QBPSuqVP/9Fax970q5dkm/XBhVjWQm2IrJt0Qhn+aMAQAfwNEwwbU60dV8Gz6d9To2rr98ep/++F//lC37Z5mF8AoPJsKqz77lnxgRkThUQw/QF86rQPTP13LmdeeYtWf269pqN2cUyyY2sUBBkAhMlFcAGub3FAiXsFp135ydYc/uCdnyo1f8lq9sYTeQQht+JsBPh1Vv/sY+MiMiBigH+CAqQBcQWzAfWc3QhpWsOHeJWTlY0eWVAgNxRLVgiQESR7OZMltLGD9ck9dfHvN7/+9e9v9gOwcdeKAJzAG1AB9EXVX92+JTYyISBSO6girh6xJQDLJBPo8AGMARYlArqAHUA/xcpgCevi0/NxiMiIFSUDnA5yaACZFcOMDn8B0F+EZQcwH428qAhb8tCkcoCjEYkHeB3AASIO3EXAu6+9vcgMV7xcJrSeRCAR/kwt4+5cf/A7W3fHLOU5gcAAAAAElFTkSuQmCC" /></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> statusDisplay = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.game--status'</span>);
 
 <span class="hljs-keyword">const</span> gameActive = <span class="hljs-literal">true</span>;
-<span class="hljs-keyword">let</span> currentPlayer = <span class="hljs-string">&#x27;X&#x27;</span>;
-<span class="hljs-keyword">let</span> gameState = [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>];
+<span class="hljs-keyword">let</span> currentPlayer = <span class="hljs-string">'X'</span>;
+<span class="hljs-keyword">let</span> gameState = [<span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>];
 
-<span class="hljs-keyword">const</span> winningMessage = <span class="hljs-function">() =&gt;</span> <span class="hljs-string">`Player <span class="hljs-subst">${currentPlayer}</span> has won!`</span>;
-<span class="hljs-keyword">const</span> drawMessage = <span class="hljs-function">() =&gt;</span> <span class="hljs-string">&#x27;Game ended in a draw!&#x27;</span>;
-<span class="hljs-keyword">const</span> currentPlayerTurn = <span class="hljs-function">() =&gt;</span> <span class="hljs-string">`It&#x27;s <span class="hljs-subst">${currentPlayer}</span>&#x27;s turn`</span>;
+<span class="hljs-keyword">const</span> winningMessage = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-string">`Player <span class="hljs-subst">${currentPlayer}</span> has won!`</span>;
+<span class="hljs-keyword">const</span> drawMessage = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-string">'Game ended in a draw!'</span>;
+<span class="hljs-keyword">const</span> currentPlayerTurn = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-string">`It's <span class="hljs-subst">${currentPlayer}</span>'s turn`</span>;
 
 statusDisplay.innerHTML = currentPlayerTurn();
 
@@ -150,7 +491,7 @@ statusDisplay.innerHTML = currentPlayerTurn();
 }
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handlePlayerChange</span>(<span class="hljs-params"></span>) </span>{
-  currentPlayer = currentPlayer === <span class="hljs-string">&#x27;X&#x27;</span> ? <span class="hljs-string">&#x27;O&#x27;</span> : <span class="hljs-string">&#x27;X&#x27;</span>;
+  currentPlayer = currentPlayer === <span class="hljs-string">'X'</span> ? <span class="hljs-string">'O'</span> : <span class="hljs-string">'X'</span>;
   nextPlayer = currentPlayer;
   statusDisplay.innerHTML = currentPlayerTurn();
 }
@@ -167,7 +508,7 @@ statusDisplay.innerHTML = currentPlayerTurn();
     <span class="hljs-keyword">const</span> val = <span class="hljs-literal">false</span>;
 
 
-    <span class="hljs-keyword">if</span> (a ===<span class="hljs-string">&#x27;&#x27;</span> || b === <span class="hljs-string">&#x27;&#x27;</span> || c === <span class="hljs-string">&#x27;&#x27;</span>) {
+    <span class="hljs-keyword">if</span> (a ===<span class="hljs-string">''</span> || b === <span class="hljs-string">''</span> || c === <span class="hljs-string">''</span>) {
       <span class="hljs-keyword">continue</span>;
     }
     <span class="hljs-keyword">if</span> (a === b &amp;&amp; b === c) {
@@ -182,7 +523,7 @@ statusDisplay.innerHTML = currentPlayerTurn();
     <span class="hljs-keyword">return</span>;
   }
 
-  <span class="hljs-keyword">const</span> roundDraw = !gameState.includes(<span class="hljs-string">&#x27;&#x27;</span>);
+  <span class="hljs-keyword">const</span> roundDraw = !gameState.includes(<span class="hljs-string">''</span>);
   <span class="hljs-keyword">if</span> (roundDraw) {
     statusDisplay.innerHTML = drawMessage();
     gameActive = <span class="hljs-literal">false</span>;
@@ -194,9 +535,9 @@ statusDisplay.innerHTML = currentPlayerTurn();
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleCellClick</span>(<span class="hljs-params">clickedCellEvent</span>) </span>{
   <span class="hljs-keyword">const</span> clickedCell = clickedCellEvent.target;
-  <span class="hljs-keyword">const</span> clickedCellIndex = <span class="hljs-built_in">parseInt</span>(clickedCell.getAttribute(<span class="hljs-string">&#x27;data-cell-index&#x27;</span>));
+  <span class="hljs-keyword">const</span> clickedCellIndex = <span class="hljs-built_in">parseInt</span>(clickedCell.getAttribute(<span class="hljs-string">'data-cell-index'</span>));
 
-  <span class="hljs-keyword">if</span> (gameState[clickedCellIndex] != <span class="hljs-string">&#x27;&#x27;</span> || !gameActive) {
+  <span class="hljs-keyword">if</span> (gameState[clickedCellIndex] != <span class="hljs-string">''</span> || !gameActive) {
     <span class="hljs-keyword">return</span>;
   }
 
@@ -206,20 +547,54 @@ statusDisplay.innerHTML = currentPlayerTurn();
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleRestartGame</span>(<span class="hljs-params"></span>) </span>{
   gameActive = <span class="hljs-literal">true</span>;
-  currentPlayer = <span class="hljs-string">&#x27;X&#x27;</span>;
-  gameState = [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>];
+  currentPlayer = <span class="hljs-string">'X'</span>;
+  gameState = [<span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>, <span class="hljs-string">''</span>];
   statusDisplay.innerHTML = currentPlayerTurn();
-  <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">&#x27;.cell&#x27;</span>).forEach(<span class="hljs-function">(<span class="hljs-params">cell</span>) =&gt;</span> cell.innerHTML = <span class="hljs-string">&#x27;&#x27;</span>);
+  <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'.cell'</span>).forEach(<span class="hljs-function">(<span class="hljs-params">cell</span>) =&gt;</span> cell.innerHTML = <span class="hljs-string">''</span>);
 }
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setGameActive</span>(<span class="hljs-params">value, oldValue</span>) </span>{
   gameActive = value;
 }
 
-<span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">&#x27;.cell&#x27;</span>).forEach(<span class="hljs-function">(<span class="hljs-params">cell</span>) =&gt;</span> cell.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, handleCellClick));
-<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.game--restart&#x27;</span>).addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, handleRestartGame);
+<span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'.cell'</span>).forEach(<span class="hljs-function">(<span class="hljs-params">cell</span>) =&gt;</span> cell.addEventListener(<span class="hljs-string">'click'</span>, handleCellClick));
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.game--restart'</span>).addEventListener(<span class="hljs-string">'click'</span>, handleRestartGame);
 
 </div></code></pre>
+<h3 id="christmas-challenge-optional-but-you-should-do-it-smiley">Christmas challenge (optional, but you should do it <img class="emoji" alt="smiley" src="data:image/png;base64,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" /> )</h3>
+<p><em>(From Advent of code 2019)</em></p>
+<p>It is Christmaaaaas time! No? Ok...</p>
+<p>In the previous exercises you used the tool to fix issues of code already implemented. In this challenge we want you to experiment how this tool is used while you are developing code. It allows to fix issues as you write them! Profit.</p>
+<p>Have fun and merry christmas? <img class="emoji" alt="christmas_tree" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAASOElEQVR4XuWbCZAd1Xnvf9853Xdf586q2TWSZrQuIIwAgcAOYPvZrAYTGew4XuI1fuTZWVzGy7Ndz8bP68MbrpdUCJgUCZgAZjGbkAQCIwFikQxaRutopJE0mpk7c2/f7j7nzXWXX7lsJyknGA3KV/WvM1XTff7f9799/+c751aLtZYTFR87I3Wr8Wt3f29T8GNOUChOYGSXXXxVrG3eXwD8lxPgIyvkPUtXX8z8lX906nsXSSsnKBxegzhPxOlZSOPRUcZLMcwhB3v5had/tr+/n1prmtH13/2iiPzZFR3Es2kcP07ypi328EkjQNcA+Xguu6V/xarm7pYiHQ0O805fRSlzFJtOct77rnv/rWftfP++UcPQ/l1MbH/yZuAaXoN4zUzwyhWSb2qdveX8Kz7QPX9BL825gEQsxFooe3GGRgxPP76On9/3Dzf/aF05Kv5kEiACfGNNft0F77zq7N6BAZIJjRVhbHSS56eLv/v2+7769YftX5/UJrhv7/i3Dv78RqqvfItw+J8I9t7E2Javsvvn941GxZ/kq4AV3mUDCEb2wp4N2KFN+MePE1qK714qi056AXJpLsg6mokR+Lu18MDTIJNCLikolzUn5TIYAd5/ipxz5mkdmRdGRvjZFtilXeLWcmosYFV7A/2d4QeBT5+0HuC56ooHB49w416P9BLLFZe7nP/2GHta4tzw8nEO1CZLZy6Sd5+UAvQuldNfzOiPHWnyeONqWLigRG/nBH29wuqzHQZOj7MtZ/Da3L+fvnblSSVA/3K5pLPbfXLhYjj9FMtzxZu4NXWYOwc/TUKNUywICxcqTnlDjP4Fmq5ud2P9ntelACKi5iySOXX0L3c+sOxsd33XnNhPeuY69PZBLNvAg0eu4Tkf/mX3uwhroBxDKiU0t2o6ezTdcx3q99Tvrc/xq/lERL0uTFC76nOi5Op0VmhsVTRPo6FZkcrGKaaPcebw5/nFgffz5pYvo+NgfA0KYgnI5jReM9jQojSrjgybVZMTGmvszWDeM+MFsNYa4Jr5p8ptxuibrKFgjCAGrBXCWIbLZ32Bo0e/QF8fTAY5jAERwIAoizVgjBCN9rgQvvsXz9q7X5et8IrV+hP5krMqX+SVYqM+fdnK+JuSaVASYK1DGAKAMVCrwjMbqw+Pj5qnxkaZN3Y02LDpsfDbJ81e4JTznH1vvTLZMa/fJTCWwAcAxwHtKrZtqXHfTyb3b1lrOk+6ZbBvif5GIqk6Nm+s8ezmGuWywXWlDqYmDc897bFlc410xumYvvabJ5UAbXNldaGkri2UhGxOsW8w4IlHPTY9FWH9Wo+9u0OyeUWhQZi+9r/X7zkptsPtfbKqNEuvL8wJKbVDMZXE9YWgZvEDsAZSKkTZGgCB77D/sGL/YMixQ+HZB3baDa/bJ6B9nqxp7HDWt861vC8zwKeqZ9Gb1mRaodigKBYVrZmQcqHG8NIFjJ75Bib6EnTPqtHRqSi26PXTAq553QnQMU+WzV2qNnb1Ore0Lhcuq8W4+rEezlzfwfvuypJqteQbhOZMyHAJvIs+znlv/wrnvPFzzHrHV9m7fBZze0K6Z2vaup1b5i5xNtbnnNECtLdLqne+/MnACueptk7n2d4Bd2Vvv0NHn0s6K+gghHiC0NjpQZFOTiOleHR+GzsSo3xvzw1cv/trPDHxOE8u6qbW7dD3y65wGgN6ZX3O/lOcp+ocda4Z4wF9i/QXRNk16ayek85DrqDIFYVsXpMvCvlGxVgYsuThIt2TaTa8bYhUuyI+KdQCw//ob4R8AjJZtHIJp8bA87jmxRGWDPvsn4SJ45byWMjYqGXsuKEyAeXj4Q5r5cc7Xww/d0I7QVHmQCyu5xQaheZ2Rb6oyOSEZEqRykAsBsWcw+NnHeGOQwc5vyeDLYMVS8wPSVtLtXcuZ8gpJGyaraUXGTq2hQ4ZJpkXSilIJoVsDrIFS/qIcGTI4HtqjlcND5xwD9jxvL0xNPbjGFAIWglKQcyFeEyRyQihJ5S3C5PbHfZvDXFcQcch4SjO33KMkEkOqSojeopR7dH44DDpHT4qr0kmFDEXlAatBK0FayAI7cfr3DPCA17eHN4wftRcemAwODK8N2RsxHjViimXJyw7t4dseNhjfMySygjPP+uzcV2Nof2GSkKxatznnOs2cuiuW9m19mZavnQ/p/54mKdfMjy3yWf0aEh1inJ9zvrcQ9McE6Pm0jrnjOwDVpwjbZvW2YMXXBl7VsfVMjdmiSWjjk8BYWjxatGYzihcDZN7A7yxAFGQySt0i0MtFCpV8KYsBPa5n91WW/6ruWd8IzTt1D3tfe5ga5cmW1Q4LrgaAMLAEoZCENg6AOrioDW4DogjhD74viXwfSZHQw4NORwY9HsHt9ndr4vzgERGfydXFJI5wYlXSCcsKHATabRVUXE1MEYAEAGlIB4XdAxsIBivzOQkYOIUJz2OZuQ7wEUzvhXuWix9nR3ujtY5moU9IVeevZT25kWMHNvNA88/xVBNEUMwIYQhiIAVUIAbk2mAyyS7D7fyVMNmgkyJ3MNvRPZsYNd+5u570e6Y0U9ALuXcnm9RtBR8PnVRB9m5A+BNUezpZk7TUa6/dytTbgZHh7gGUABgLWgNYiAVN2wdfzubU62QsLRn13BO2waOjjr/DCybsQLMXqA/0zlXL802aJZ2hFTG9zC6aQ+BHxWXcmFuTvPMhMXRAgogglIAEBioBoqBxN1sqXwZGyuxNHUPBQdKx2RpnWPX1vBLM6sVjozvj1s61BdbOjW5oqaQBuVAW0uM2X0ttLcnUBpycQgtvxXWgjHRWA0ytDcMcfGBNv7bC0VOb7yXWDFJS7umeZqjZ76smUEmGLXDLZ3OZ1s7NQ0lRTILO0Yc3tkYQGM3VPtwcvsoxV5i9zMKa2Qaln8tfGPRsSx9C3xEygQmSwJLodFQ8zTWcsvsJXr+rufD606YAN1zZaG46qpsjo+19ehCY4vQ0KJIZ4VUwrJ7RPO39yj+9PK9UByDiQnuekTx/KEYxWKIMfzOqMUsFeVhbIDrxkgGCVRgcRxLNieEoQIsblw+s2il/vOpcf5P6Jtb92y3L/1hVoGo2AWi5X9bQSdS0hVz6YsnlBvPCJmskCtMo6jI5oVkSnBcAYHB3ZaC9cnpGhVxGdcxWlsFLfCbrAJMJg3pkSnO3D6LRloZdHfy1MIJdCyJWxPCwFKZskyMTWPUMH58epyweOVpVI1f89lZnbL7xBLY0H5yWpStr4oH7N3BywjnZrLqglKTGmju0G5Lp6K1Q9HUoiiUFOm0EHMFJYIArgsLFyjGRXPbYy7bD2t6uhXJJCgFAmAjANQSkB+u8tcbL+TNff+LFcv/hitKX+GDD/ZjrAcxUBJx1LnqnKWWKId6LvWc6rlN53h+Pdd6zq+aCVprQ6naWWFgh0FwnGn8/9YWvIqlOg1rBdGACGPHDC8847N/p093O0wcCXlyXZW9u0K8qkVpcN0IWsPRIOSCuxOkBoGf/i388MvwxJ3M21Jg3iPCmFiUAmOFasSHCUEBjhvlBEI9x3qu9Zz/II3QwGn6L5NJdUkiyYCjcUXLVDwmR9MFvVVUeIFolQ0Cy+SkRTA4rkJpwIAfQBgYXEfIZDX5BgFgdNSyx/O54748PX4CGrOQSEC5DIcr/GPPGNevrNJpXQQzIaF+sDwWzvdqtmRDmwpC/GqFX1Qq5s5fPB1ef8I6wWWr9Vipycml84LjglYgmiiiZY4wBBOAH4INLQYQgdF0yNfWFzhHzYfT5kE+D0MH4cltfH3udm7vq5EYURwbCcafWxfmZ1wj1N0vq2b1ublMQepujY42OHUgAqGNCg8Di+eDnTI4OjJEFKi45sZ545y9bQI5FkDowZGAnZkxHp7n0ew4+BlIlHWuu09W7YlOi2eOAPGkvjaVhkxWkc6DowXlgACiwBowBrwquDHon5dmz+4KVS/ygaQWjs0PuVpvY83+I3TtT/JMYow7zxkl2+gQmxKmUpBIg5vR1wIbZkwn2NAn+XReLsvmhERGiDmCdgABqSMiAgFjDVdekuB/fqSL914dQ7TBiX4hojPpopYKN6we5lOrd3LHm45T6nLIa008IaQzQjY/jYJcVuecMU9APiV/lykoEmmFVoABrMUi+AIQwVjQIrS1jQIwq22cZCqJEkFrwELB0RSKGgCxkWeEgDiCk4BYWpHORZzAZSdcgPZeeWdzl3NpNg/xODheleNVQ1UgYyAdi+G7GgARKE8Kd93jkLkIHljnEviQSloQMAZqNX4rBPBCS7nsIdaiXHBScmlrr/zx8KC99YSdB8zqlQ8VW/T3mzqEpmZNLlbjQGee5rPeQVOhlz37f05t/d20VzVeXCNEMXzAUp7wyTfEaGrm342KD3Hrcc25c1g0dyVHR4/yw1se5Y5Hqnjj9sOHBu0PXlMBpgs+L5mRL2aL6qxCk1AsKRpSlsE2S/bqj3J6dgmVWpl4Ms+9r9xO++1302gT1DQAKA1hCFrxO/YEBpAIQGihMuXz+UtzLDnvLeCHGB2nUhnkE9eu56FNGjNlHq+U7XUj++2jr7oAhW4pOj6tyuEM7agL40l7QTwphWRWSP3S8YVMBvLG8NM3l5hY0oU/VcbokHgYp5aMsej+VzhtW4WplObfCsd4mBooBTgQqDhTPszJGz75Nh+jwfNABHI5eGIzfPZml6BqqE1avIo97nvyoF8z95uAjYHL8PE9dvQ/5AFNXfIN4BPZlCi3GDU2TgzcuCIWF+IpIZGCWAJEQVADL+fiFS1NLQNkdZERbwgvGMZPOvg1i+/+W4l4jPhdVN9wD97UGI3Pv4V0vEzVi5NwIOFCoiAkU02YsMLUxATNRcgUIfAUYcriebbge/aKoKauCHzwq7ZehwG+PbLX/sXvJYANuddNqGuTGSGZFdw4OO6vCRGT+ohoIbTRKW7jS5NMvKmR2SyjiRa2J1/hZe84jdsreFYRBIAFgN+0HsfAM85fcSyxmFDBfC5mqX8LCnhhT8Sf7G6B8hKUHiXTvJmXH7P4VpPNGvw4xGpS54h+evegMmEJfKv8qrn3934CjhywDzV1y/XG6L90HIubVJHLOyAaHAVYsNYSBlCLa/oeGmW0eytbL06TpcCo2Uf3d1+maafHVNHFeBZjAAEAqwBADEgIucm1GOfD+B5kqi/jueCI5dA4/M2N8O1PHkG1PQeBx8b7Df/3IZdM0kS5SJRbEICnBRsajIEgMNfXa/kPe0DLbLkhX9IfzRaFRFqIJaROhHbACghRiALlWSb3+Qx1aaotLsVBj9Yy0OjihWACCwLigjcJU8MRd6q17icBtSOWocoC4rEKXQ2DkHBAK0SibUGWgMWzDccn4KWDLqVmIREDDIRBVHytaqlOWiZGLWNHw+8e2mU/9p9eBVr75I/iSflBKqv6ftnpxSEWE4h6fZBIAAEIwIwZwoqBhKIWE3wv+j4aA6G1L1SG1GKnImQVAEwYCFKGZFv4ghOyWGtwMgrtqGjb7YJ2oTIF5ak6N+SzIESF25C6x1DzoFq2TE2YnV7Ffmh4p33oVV0G23rlXB2XaxNJdZGbjLxAa1AaRASI9uihgdCHwAOvZqeCqn3M9+0th3fxj7kc+TZHH53f4zJ7lgZg11DItt0+B4OwND7OWPNsrnJdeZeTkNWxmKTcSIA6H8oBsUJobLS5CiMD9itQqZi7jGe/eXDQrv2DdILRxKxtbpaMyvBGEXWhcuw8pWlRQhsWP7QcNL5sMqFZi+XJ4d12kF+LvgbJDPQ6nNLn0N0c0RdSghVLMBimx6w9BtwSAVp7pBdhpdLqXOXaFbrOI7imzhNyyATyirXmAVPmkcOHbXnGvzN0xhznA6fNid+4oNOhMaciwx03bN0f8PQO/yMbt9e+f9K+L7CsU9pbGpzvFbPR2V5oqaP+N8WM0FbU31vcJX0npQCLutwLG4vu7llF7eRSCkcDRHA05FOKtuI0CrEdizudy04aAQaaZNbyXue2WQV1f1fJcUo5IeEKIBhDHYCQiAn1/3WUNLMa9O3Le5yf9DdK++v2naGF7bIc0Z9OZ5135FOK6FOHIIDjU4apmkUThYm2uwQ+xBzIphSh4RKt1CULO5x7lcjXXtjnr53xAsxtk6a4oy8VK+/V2lkpAgJTgTHVqQrWGChXLK4DIoISADBRR4kfgBcYKlXwjRURm3C0vNVa3rqow31WMD+qhuaftx+0I7xK8f8ASHHXUPr9zREAAAAASUVORK5CYII=" /> <img class="emoji" alt="santa" src="data:image/png;base64,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" /></p>
+<p><em>--- PART 01 ---</em></p>
+<p>The Elves quickly load you into a spacecraft and prepare to launch.</p>
+<p>At the first Go / No Go poll, every Elf is Go until the Fuel Counter-Upper. They haven't determined the amount of fuel required yet.</p>
+<p>Fuel required to launch a given module is based on its mass. Specifically, to find the fuel required for a module, take its mass, divide by three, round down, and subtract 2.</p>
+<p>For example:</p>
+<ul>
+<li>For a mass of 12, divide by 3 and round down to get 4, then subtract 2 to get 2.</li>
+<li>For a mass of 14, dividing by 3 and rounding down still yields 4, so the fuel required is also 2.</li>
+<li>For a mass of 1969, the fuel required is 654.</li>
+<li>For a mass of 100756, the fuel required is 33583.</li>
+</ul>
+<p>The Fuel Counter-Upper needs to know the total fuel requirement. To find it, individually calculate the fuel needed for the mass of each module (your puzzle input), then add together all the fuel values.</p>
+<p>What is the sum of the fuel requirements for all of the modules on your spacecraft?
+(the puzzle input is in the repository)</p>
+<p><em>--- PART 02 ---</em></p>
+<p>During the second Go / No Go poll, the Elf in charge of the Rocket Equation Double-Checker stops the launch sequence. Apparently, you forgot to include additional fuel for the fuel you just added.</p>
+<p>Fuel itself requires fuel just like a module - take its mass, divide by three, round down, and subtract 2. However, that fuel also requires fuel, and that fuel requires fuel, and so on. Any mass that would require negative fuel should instead be treated as if it requires zero fuel; the remaining mass, if any, is instead handled by wishing really hard, which has no mass and is outside the scope of this calculation.</p>
+<p>So, for each module mass, calculate its fuel and add it to the total. Then, treat the fuel amount you just calculated as the input mass and repeat the process, continuing until a fuel requirement is zero or negative. For example:</p>
+<ul>
+<li>A module of mass 14 requires 2 fuel. This fuel requires no further fuel (2 divided by 3 and rounded down is 0, which would call for a negative fuel), so the total fuel required is still just 2.</li>
+<li>At first, a module of mass 1969 requires 654 fuel. Then, this fuel requires 216 more fuel (654 / 3 - 2). 216 then requires 70 more fuel, which requires 21 fuel, which requires 5 fuel, which requires no further fuel. So, the total fuel required for a module of mass 1969 is 654 + 216 + 70 + 21 + 5 = 966.</li>
+<li>The fuel required by a module of mass 100756 and its fuel is: 33583 + 11192 + 3728 + 1240 + 411 + 135 + 43 + 12 + 2 = 50346.</li>
+</ul>
+<p>What is the sum of the fuel requirements for all of the modules on your spacecraft when also taking into account the mass of the added fuel? (Calculate the fuel requirements for each module separately, then add them all up at the end.)</p>
+<p><em>Solution:</em></p>
+<ul>
+<li>Part 01: 3342946</li>
+<li>Part 02: 5011553</li>
+</ul>
 
-    </body>
-    </html>
+</body>
+</html>
